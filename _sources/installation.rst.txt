@@ -1,0 +1,23 @@
+Installation
+============
+
+Installation of the ``syglass`` Python module is done via ``pip``, a simple package management system included with
+most installations of Python.
+
+Installing
+------------
+
+Installation is performed using ``pip`` through the command line as follows: ::
+
+	pip install -i https://test.pypi.org/simple/ syGlass
+
+Updating an existing installation is similar: ::
+
+	pip install -i https://test.pypi.org/simple/ syGlass --upgrade
+
+Uninstalling
+--------------
+
+``pip`` can also be used to uninstall the module once it's been installed: ::
+
+	pip uninstall syglass

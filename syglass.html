@@ -1,0 +1,822 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>syglass package &#8212; syglass 0.18.dev0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="syglass-package">
+<h1>syglass package<a class="headerlink" href="#syglass-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-syglass">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-syglass" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="syglass.Block">
+<em class="property">class </em><code class="sig-prename descclassname">syglass.</code><code class="sig-name descname">Block</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">offset</em><span class="sig-paren">)</span><a class="headerlink" href="#syglass.Block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Instances of this class represent blocks of volumetric image data. These
+blocks can be retrieved from <code class="docutils literal notranslate"><span class="pre">Project</span></code> objects using a number of
+functions such as <code class="docutils literal notranslate"><span class="pre">get_block()</span></code> and <code class="docutils literal notranslate"><span class="pre">get_block_by_point().</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Block</span></code> objects have two fields: <code class="docutils literal notranslate"><span class="pre">data</span></code> and <code class="docutils literal notranslate"><span class="pre">offset</span></code>. The <code class="docutils literal notranslate"><span class="pre">data</span></code>
+field contains a 4D numpy array whose dimensions represent z, y, x, and
+channel respectively. The <code class="docutils literal notranslate"><span class="pre">offset</span></code> field is a 1D numpy array of length
+3 whose values represent the offset in voxels between the origin of the
+entire image volume and the origin of the block, where the origin is the
+bottom-left corner in either case.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="syglass.Project">
+<em class="property">class </em><code class="sig-prename descclassname">syglass.</code><code class="sig-name descname">Project</code><span class="sig-paren">(</span><em class="sig-param">project_impl</em><span class="sig-paren">)</span><a class="headerlink" href="#syglass.Project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Instances of this class represent syGlass projects. Instances can be
+created by calling <code class="docutils literal notranslate"><span class="pre">syglass.get_project()</span></code> with the string path to the
+project’s <code class="docutils literal notranslate"><span class="pre">.syg</span></code> file.</p>
+<dl class="method">
+<dt id="syglass.Project.add_label_to_surface">
+<code class="sig-name descname">add_label_to_surface</code><span class="sig-paren">(</span><em class="sig-param">label_name: str</em>, <em class="sig-param">surface_name: str</em>, <em class="sig-param">experiment: str = 'default'</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.add_label_to_surface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a label to a surface.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label_name</strong> – the name of the label to apply</p></li>
+<li><p><strong>surface_name</strong> – the name of the surface to apply to label to</p></li>
+<li><p><strong>experiment</strong> – the name of the experiment in which to apply the
+label</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.add_new_experiment">
+<code class="sig-name descname">add_new_experiment</code><span class="sig-paren">(</span><em class="sig-param">experiment: str = 'default'</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.add_new_experiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new, empty experiment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>experiment</strong> – the name of the newly made experiment</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.copy_experiment">
+<code class="sig-name descname">copy_experiment</code><span class="sig-paren">(</span><em class="sig-param">source: str</em>, <em class="sig-param">destination: str</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.copy_experiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a copy of an existing experiment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> – the name of experiment to make a copy of</p></li>
+<li><p><strong>destination</strong> – the name of the newly copied experiment</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.copy_shader_settings_from_project">
+<code class="sig-name descname">copy_shader_settings_from_project</code><span class="sig-paren">(</span><em class="sig-param">source: syglass.Project</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.copy_shader_settings_from_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy the shader settings from one project to another.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>source</strong> – the project from which to copy the settings from</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.create_label">
+<code class="sig-name descname">create_label</code><span class="sig-paren">(</span><em class="sig-param">label_name: str</em>, <em class="sig-param">experiment: str = 'default'</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.create_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new label to apply to surfaces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label_name</strong> – the name of the new label</p></li>
+<li><p><strong>experiment</strong> – the experiment in which to add the label to</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.delete_all_surfaces">
+<code class="sig-name descname">delete_all_surfaces</code><span class="sig-paren">(</span><em class="sig-param">experiment: str = 'default'</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.delete_all_surfaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes all surfaces in an experiment</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>experiment</strong> – the experiment to delete all surfaces from</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.delete_experiment">
+<code class="sig-name descname">delete_experiment</code><span class="sig-paren">(</span><em class="sig-param">experiment: str = 'default'</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.delete_experiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the selected experiment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>experiment</strong> – the name of the experiment to be deleted</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.delete_label">
+<code class="sig-name descname">delete_label</code><span class="sig-paren">(</span><em class="sig-param">label_name: str</em>, <em class="sig-param">experiment: str = 'default'</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.delete_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a label, removing it from all surfaces that have it</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label_name</strong> – the name of the label to delete</p></li>
+<li><p><strong>experiment</strong> – the experiment in which to delete the label from</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.delete_surface">
+<code class="sig-name descname">delete_surface</code><span class="sig-paren">(</span><em class="sig-param">surface_name: str</em>, <em class="sig-param">experiment: str = 'default'</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.delete_surface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a surface from an experiment</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>surface_name</strong> – the name of the surface to delete</p></li>
+<li><p><strong>experiment</strong> – the name of the experiment where the surface is</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.get_block">
+<code class="sig-name descname">get_block</code><span class="sig-paren">(</span><em class="sig-param">timepoint: int</em>, <em class="sig-param">resolution_level: int</em>, <em class="sig-param">index: int</em><span class="sig-paren">)</span> &#x2192; syglass.Block<a class="headerlink" href="#syglass.Project.get_block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a block of the project’s volumetric data as a <code class="docutils literal notranslate"><span class="pre">Block</span></code> object.
+To ensure that the block index you pass to this function is valid, you
+may use the function <code class="docutils literal notranslate"><span class="pre">get_resoultion_map()</span></code> to get a list containing
+the number of blocks at each resolution level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timepoint</strong> – the timepoint from which to retrieve a block (0 for
+static volumes)</p></li>
+<li><p><strong>resolution_level</strong> – the resolution level from which to retrieve a
+block</p></li>
+<li><p><strong>index</strong> – the index of the target block within the given
+resolution level</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a block of the project’s volumetric data as a <cite>Block</cite> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.get_block_by_point">
+<code class="sig-name descname">get_block_by_point</code><span class="sig-paren">(</span><em class="sig-param">timepoint: int</em>, <em class="sig-param">resolution_level: int</em>, <em class="sig-param">point: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; syglass.Block<a class="headerlink" href="#syglass.Project.get_block_by_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the block of the project’s volumetric data that contains the
+given point as a <code class="docutils literal notranslate"><span class="pre">Block</span></code> object. The point passed to this function
+should be a numpy array of length three with elements representing
+the z, y, and x coordinates respectively. When using this function to
+query blocks containing annotation points from syGlass, always use
+the highest resolution level; the coordinates of these points are
+recorded with respect to the full resolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timepoint</strong> – the timepoint from which to retrieve a block (0 for
+static volumes)</p></li>
+<li><p><strong>resolution_level</strong> – the resolution level from which to retrieve a
+block</p></li>
+<li><p><strong>point</strong> – a numpy array of length 3 representing the target point</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the block of the project’s volumetric data that contains the
+given point as a <code class="docutils literal notranslate"><span class="pre">Block</span></code> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.get_block_size">
+<code class="sig-name descname">get_block_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#syglass.Project.get_block_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the dimensions in voxels of one block of the project’s
+volumetric data. The returned array has length 3, with each
+element describing the z-, y-, and x-dimension respectively.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the dimensions in voxels of one block of the project’s
+volumetric data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.get_channel_count">
+<code class="sig-name descname">get_channel_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#syglass.Project.get_channel_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the integer number of channels the project’s volumetric data
+contains. The result can be assumed to be in the range [0, 4], as
+syGlass projects support at most 4 channels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the integer number of channels in the project’s volumetric
+data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.get_citation">
+<code class="sig-name descname">get_citation</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#syglass.Project.get_citation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the stored citation for the project.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the stored citation as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.get_counting_points">
+<code class="sig-name descname">get_counting_points</code><span class="sig-paren">(</span><em class="sig-param">experiment: str = 'default'</em><span class="sig-paren">)</span> &#x2192; Dict[str, numpy.ndarray]<a class="headerlink" href="#syglass.Project.get_counting_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary containing all of the counting points associated
+with the given experiment. If no experiment is given, the default
+experiment is assumed. The dictionary has keys <code class="docutils literal notranslate"><span class="pre">&quot;Red&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Orange&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;Yellow&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Green&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Cyan&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Blue&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;Violet&quot;</span></code>,
+which map to numpy arrays containing zyx points. The coordinates of
+these points are in voxels and are relative to the highest resolution
+level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>experiment</strong> – the name of the experiment from which to retrieve
+counting points</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a dictionary containing all of the experiment’s counting
+points, their locations, and their colors</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.get_current_experiment">
+<code class="sig-name descname">get_current_experiment</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#syglass.Project.get_current_experiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the current active experiment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the current experiment name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.get_custom_block">
+<code class="sig-name descname">get_custom_block</code><span class="sig-paren">(</span><em class="sig-param">timepoint: int</em>, <em class="sig-param">resolution_level: int</em>, <em class="sig-param">offset: numpy.ndarray</em>, <em class="sig-param">dimensions: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; syglass.Block<a class="headerlink" href="#syglass.Project.get_custom_block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <code class="docutils literal notranslate"><span class="pre">Block</span></code> object of custom offset and dimensions.
+Rather than pulling a block directly from the syGlass project, this
+pulls as many blocks as necessary and stitches them together into a
+block fitting the given description. The offset and dimensions
+arguments should be 1D numpy arrays of length 3, with each element
+representing z, y, and x respectively.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timepoint</strong> – the timepoint from which to retrieve a block (0 for
+static volumes)</p></li>
+<li><p><strong>resolution_level</strong> – the resolution level from which to retrieve a
+block</p></li>
+<li><p><strong>offset</strong> – the distance from the bottom-left corner of the volume
+to the bottom-left corner of the block</p></li>
+<li><p><strong>dimensions</strong> – the desired dimensions for the block</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a <code class="docutils literal notranslate"><span class="pre">Block</span></code> object of custom offset and dimensions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.get_data_type">
+<code class="sig-name descname">get_data_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; syglass.ProjectDataType<a class="headerlink" href="#syglass.Project.get_data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a variant of the ProjectDataType enum describing the type of
+the project’s volumetric data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a ProjectDataType variant describing the type of the
+project’s volumetric data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.get_experiments">
+<code class="sig-name descname">get_experiments</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; List[str]<a class="headerlink" href="#syglass.Project.get_experiments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of all the experiments in the current project.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a list containing all experiment names in the project</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.get_is_signed">
+<code class="sig-name descname">get_is_signed</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#syglass.Project.get_is_signed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the project is signed, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.
+Signed projects are immutable because they have been designated as
+read-only. Changes made to metadata and annotations of signed projects
+are reverted automatically when the last reference to the project is
+destroyed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a boolean indicating whether the project is signed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.get_labels">
+<code class="sig-name descname">get_labels</code><span class="sig-paren">(</span><em class="sig-param">experiment: str = 'default'</em><span class="sig-paren">)</span> &#x2192; List[str]<a class="headerlink" href="#syglass.Project.get_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all the labels that exist in the given experiment</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>experiment</strong> – the experiment from which to get the labels from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a list containing all labels in the experiment</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.get_mesh_colors">
+<code class="sig-name descname">get_mesh_colors</code><span class="sig-paren">(</span><em class="sig-param">experiment: str = 'default'</em><span class="sig-paren">)</span> &#x2192; Dict[str, Tuple[int, int, int, int]]<a class="headerlink" href="#syglass.Project.get_mesh_colors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dict of all the surface names mapping to their colors. The
+colors are formatted as a 4 element tuple containing R,G,B,A values
+ranging from 0-255.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>experiment</strong> – the name of the experiment where the surfaces exist</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a dict of surface names to rgba color values</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.get_name">
+<code class="sig-name descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#syglass.Project.get_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the string name of the project.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the name of the project as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.get_path_to_syg_file">
+<code class="sig-name descname">get_path_to_syg_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#syglass.Project.get_path_to_syg_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the full path to the syg file of the current project.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the full path to the syg file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.get_resolution_map">
+<code class="sig-name descname">get_resolution_map</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#syglass.Project.get_resolution_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of resolution levels and the number of blocks within
+each. The length of the returned list is the number of resolution
+levels in the project. The value at each resolution level is the
+number of blocks that resolution level contains.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a list of resolution levels and the number of blocks within
+each</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.get_size">
+<code class="sig-name descname">get_size</code><span class="sig-paren">(</span><em class="sig-param">resolution_level: int</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#syglass.Project.get_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the dimensions in voxels of the project’s volumetric data at
+the given resolution. The returned array has length 3, with each
+element describing the z-, y-, and x-dimension respectively. To get
+the size of the smallest resolution level of the volume, pass 0 to
+this function. Larger values will query higher resolution levels. The
+highest resolution level in a project can be found by taking
+<code class="docutils literal notranslate"><span class="pre">len(project.get_resolution_map())</span> <span class="pre">-</span> <span class="pre">1</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>resolution_level</strong> – the target resolution level as an integer</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the dimensions in voxels of the project’s volumetric data at
+the given resolution</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.get_surface_labels">
+<code class="sig-name descname">get_surface_labels</code><span class="sig-paren">(</span><em class="sig-param">surface_name: str</em>, <em class="sig-param">experiment: str = 'default'</em><span class="sig-paren">)</span> &#x2192; List[str]<a class="headerlink" href="#syglass.Project.get_surface_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of all labels currently applied on a surface.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>surface_name</strong> – the name of the surface to get the labels of</p></li>
+<li><p><strong>experiment</strong> – the name of the experiment in which the labels exist</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a list containing all labels applied on the surface in the
+experiment</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.get_surface_names_and_sizes">
+<code class="sig-name descname">get_surface_names_and_sizes</code><span class="sig-paren">(</span><em class="sig-param">experiment: str = 'default'</em><span class="sig-paren">)</span> &#x2192; Dict[str, Tuple[int, int]]<a class="headerlink" href="#syglass.Project.get_surface_names_and_sizes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dict of all the surface names mapping to their size. The size
+is represented as a tuple of two ints. The two ints are their vertices
+and faces respectively.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>experiment</strong> – the name of the experiment where the surfaces exist</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a dict of surface names to vertices and faces count</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.get_timepoint_count">
+<code class="sig-name descname">get_timepoint_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#syglass.Project.get_timepoint_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the integer number of timepoints or frames in the project’s
+volumetric data. For static volumes, this is always 1. For time-series
+data, it is always &gt; 1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the integer number of timepoints in the project’s volumetric
+data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.get_voxel_dimensions">
+<code class="sig-name descname">get_voxel_dimensions</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#syglass.Project.get_voxel_dimensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the physical dimensions of the voxels in the project’s
+volumetric data as a numpy array. The returned array has length 3,
+with each element describing the z-, y-, and x-dimension respectively.
+The unit associated with these dimensions can be retrieved using
+<code class="docutils literal notranslate"><span class="pre">get_voxel_unit()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the physical dimensions of the voxels in the project’s
+volumetric data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.get_voxel_unit">
+<code class="sig-name descname">get_voxel_unit</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#syglass.Project.get_voxel_unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a string describing the unit of the project’s voxel dimensions,
+e.g. <code class="docutils literal notranslate"><span class="pre">&quot;nm&quot;</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a string describing the unit of the project’s voxel dimensions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.remove_label_from_surface">
+<code class="sig-name descname">remove_label_from_surface</code><span class="sig-paren">(</span><em class="sig-param">label_name: str</em>, <em class="sig-param">surface_name: str</em>, <em class="sig-param">experiment: str = 'default'</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.remove_label_from_surface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a label from a surface</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label_name</strong> – the name of the label to remove</p></li>
+<li><p><strong>surface_name</strong> – the name of the surface to remove to label from</p></li>
+<li><p><strong>experiment</strong> – the name of the experiment in which to remove the
+label</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.save_tracings">
+<code class="sig-name descname">save_tracings</code><span class="sig-paren">(</span><em class="sig-param">experiment: str = 'default'</em>, <em class="sig-param">directory: str = './'</em>, <em class="sig-param">base_name: str = 'output.swc'</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.save_tracings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves all of the tracings, in the SWC file format, to a directory.
+Read more about the SWC format here:
+<a class="reference external" href="http://research.mssm.edu/cnic/swc.html">http://research.mssm.edu/cnic/swc.html</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>experiment</strong> – the name of the experiment from which to retrieve
+counting points</p></li>
+<li><p><strong>directory</strong> – path where the tracing files will be saved</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a dictionary containing all of the experiment’s counting
+points, their locations, and their colors</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.set_citation">
+<code class="sig-name descname">set_citation</code><span class="sig-paren">(</span><em class="sig-param">citation: str</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.set_citation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the stored citation for the project.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>citation</strong> – the citation to store as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.set_counting_points">
+<code class="sig-name descname">set_counting_points</code><span class="sig-paren">(</span><em class="sig-param">counting_points: Mapping[str, numpy.ndarray], experiment: str = 'default'</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.set_counting_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a dictionary containing all of the counting points to be
+associated with the given experiment. If no experiment is given, the
+default experiment is assumed. The dictionary should have keys
+<code class="docutils literal notranslate"><span class="pre">&quot;Red&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Orange&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Yellow&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Green&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Cyan&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;Blue&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;Violet&quot;</span></code>, which map to numpy arrays containing zyx
+points. The coordinates of these points should be in voxels, relative
+to the highest resolution level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>counting_points</strong> – a dictionary containing the location and color
+of each counting point</p></li>
+<li><p><strong>experiment</strong> – the name of the experiment from which to retrieve
+counting points</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.set_current_experiment">
+<code class="sig-name descname">set_current_experiment</code><span class="sig-paren">(</span><em class="sig-param">experiment: str = 'default'</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.set_current_experiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the current active experiment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>experiment</strong> – the name of the experiment to make active</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.set_surface_color">
+<code class="sig-name descname">set_surface_color</code><span class="sig-paren">(</span><em class="sig-param">surface_name: str, color: Tuple[int, int, int, int], experiment: str = 'default'</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.set_surface_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the color of a surface.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>surface_name</strong> – the name of the surface to set the color of</p></li>
+<li><p><strong>color</strong> – the color to set the surface represented as a 4-sized
+tuple where the elements range from 0-255 and follow the
+order r,g,b,a</p></li>
+<li><p><strong>experiment</strong> – the name of the experiment where the surface is</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.set_voxel_dimensions">
+<code class="sig-name descname">set_voxel_dimensions</code><span class="sig-paren">(</span><em class="sig-param">voxel_dimensions: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.set_voxel_dimensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the physical dimensions of the voxels in the project’s volumetric
+data. A numpy array of length 3 should be passed to this function,
+with each element representing the z-, y-, and x-dimension
+respectively.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>voxel_dimensions</strong> – the new physical dimensions for the voxels in
+the project’s volumetric data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="syglass.Project.set_voxel_unit">
+<code class="sig-name descname">set_voxel_unit</code><span class="sig-paren">(</span><em class="sig-param">voxel_unit: str</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.set_voxel_unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the string description for the unit of the project’s voxel
+dimensions, e.g. <code class="docutils literal notranslate"><span class="pre">&quot;nm&quot;</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>voxel_unit</strong> – a string description for the unit of the project’s
+voxel dimensions</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="syglass.ProjectCreationSettings">
+<em class="property">class </em><code class="sig-prename descclassname">syglass.</code><code class="sig-name descname">ProjectCreationSettings</code><a class="headerlink" href="#syglass.ProjectCreationSettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Instances of this class represent configurations of project creation
+settings.</p>
+<p>TODO: Document each of these attributes here. Note that if
+<code class="docutils literal notranslate"><span class="pre">target_data_type</span></code> is changed, <code class="docutils literal notranslate"><span class="pre">downsample_range</span></code> must be changed
+accordingly. See <code class="docutils literal notranslate"><span class="pre">Project.get_data_type()</span></code> for examples of valid data
+type strings.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="syglass.ProjectDataType">
+<em class="property">class </em><code class="sig-prename descclassname">syglass.</code><code class="sig-name descname">ProjectDataType</code><a class="headerlink" href="#syglass.ProjectDataType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>Enum of the data types supported by syGlass. Calling <cite>get_data_type()</cite> on
+a <cite>Project</cite> will return one of these variants.</p>
+<dl class="attribute">
+<dt id="syglass.ProjectDataType.FLOAT">
+<code class="sig-name descname">FLOAT</code><em class="property"> = 4</em><a class="headerlink" href="#syglass.ProjectDataType.FLOAT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="syglass.ProjectDataType.HALF_FLOAT">
+<code class="sig-name descname">HALF_FLOAT</code><em class="property"> = 3</em><a class="headerlink" href="#syglass.ProjectDataType.HALF_FLOAT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="syglass.ProjectDataType.UINT16">
+<code class="sig-name descname">UINT16</code><em class="property"> = 1</em><a class="headerlink" href="#syglass.ProjectDataType.UINT16" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="syglass.ProjectDataType.UINT32">
+<code class="sig-name descname">UINT32</code><em class="property"> = 2</em><a class="headerlink" href="#syglass.ProjectDataType.UINT32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="syglass.ProjectDataType.UINT8">
+<code class="sig-name descname">UINT8</code><em class="property"> = 0</em><a class="headerlink" href="#syglass.ProjectDataType.UINT8" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="syglass.create_project">
+<code class="sig-prename descclassname">syglass.</code><code class="sig-name descname">create_project</code><span class="sig-paren">(</span><em class="sig-param">reference_files: Iterable[str], destination: str, settings: syglass.ProjectCreationSettings</em><span class="sig-paren">)</span> &#x2192; syglass.Project<a class="headerlink" href="#syglass.create_project" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reference_files</strong> – one file from each series containing the
+volumetric image data, e.g. TIFF files</p></li>
+<li><p><strong>destination</strong> – a string path where the project should be saved</p></li>
+<li><p><strong>settings</strong> – an instance of <code class="docutils literal notranslate"><span class="pre">ProjectCreationSettings</span></code> configured
+with the desired attributes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a <code class="docutils literal notranslate"><span class="pre">Project</span></code> object created from the given files</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="syglass.get_project">
+<code class="sig-prename descclassname">syglass.</code><code class="sig-name descname">get_project</code><span class="sig-paren">(</span><em class="sig-param">path: str</em><span class="sig-paren">)</span> &#x2192; syglass.Project<a class="headerlink" href="#syglass.get_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a string path to a valid <code class="docutils literal notranslate"><span class="pre">.syg</span></code> file, returns a <code class="docutils literal notranslate"><span class="pre">Project</span></code> object
+that represents that syGlass project.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> – the string path to the project’s <code class="docutils literal notranslate"><span class="pre">.syg</span></code> file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a <code class="docutils literal notranslate"><span class="pre">Project</span></code> object representing the given syGlass project</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="syglass.is_project">
+<code class="sig-prename descclassname">syglass.</code><code class="sig-name descname">is_project</code><span class="sig-paren">(</span><em class="sig-param">path: str</em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#syglass.is_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a string path, returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if that path points to a valid
+syGlass project and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> – a string path to a file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a boolean indicating whether the path points to a valid syGlass
+project</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">syglass</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Usage Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faqs.html">FAQs</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, IstoVisio.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/syglass.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

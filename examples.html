@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Usage Examples &#8212; syglass 0.18.dev0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="FAQs" href="faqs.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="usage-examples">
+<h1>Usage Examples<a class="headerlink" href="#usage-examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="volumetric-data">
+<h2>Volumetric Data<a class="headerlink" href="#volumetric-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="creating-a-project">
+<h3>Creating a Project<a class="headerlink" href="#creating-a-project" title="Permalink to this headline">¶</a></h3>
+<p>Programmatic creation of projects can be useful for rapid viewing of data after collection.</p>
+<p>In this example, we’ll create a project file from a series of tiffs.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">syglass</span> <span class="k">import</span> <span class="n">pyglass</span>
+<span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
+
+<span class="c1"># create a project by specifing a path and the name of the project to be created. In this case, we&#39;ll call the project autoGenProject.</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">pyglass</span><span class="o">.</span><span class="n">CreateProject</span><span class="p">(</span><span class="n">pyglass</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">syGlassProjects&quot;</span><span class="p">),</span> <span class="s2">&quot;autoGenProject&quot;</span><span class="p">)</span>
+
+<span class="c1"># create a DirectoryDescriptor to search a folder for tiff that match a pattern</span>
+<span class="n">dd</span> <span class="o">=</span> <span class="n">pyglass</span><span class="o">.</span><span class="n">DirectoryDescription</span><span class="p">()</span>
+
+<span class="c1"># show the directoryDescriptor the first image of the set, and it will create a file list of matching slices</span>
+<span class="n">dd</span><span class="o">.</span><span class="n">InspectByReferenceFile</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">raw_data</span><span class="se">\\</span><span class="s2">example0000.tif&quot;</span><span class="p">))</span>
+
+<span class="c1"># create a DataProvider to the dataProvider the file list</span>
+<span class="n">dataProvider</span> <span class="o">=</span> <span class="n">pyglass</span><span class="o">.</span><span class="n">OpenTIFFs</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">GetFileList</span><span class="p">(),</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># spawn a ConversionDriver to convert the data</span>
+<span class="n">cd</span> <span class="o">=</span> <span class="n">pyglass</span><span class="o">.</span><span class="n">ConversionDriver</span><span class="p">()</span>
+
+<span class="c1"># set the ConversionDriver input to the data provider</span>
+<span class="n">cd</span><span class="o">.</span><span class="n">SetInput</span><span class="p">(</span><span class="n">dataProvider</span><span class="p">)</span>
+
+<span class="c1"># set the ConversionDriver output to the project previously created</span>
+<span class="n">cd</span><span class="o">.</span><span class="n">SetOutput</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
+
+<span class="c1"># start the job!</span>
+<span class="n">cd</span><span class="o">.</span><span class="n">StartAsynchronous</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="traversing-the-volume">
+<h3>Traversing the Volume<a class="headerlink" href="#traversing-the-volume" title="Permalink to this headline">¶</a></h3>
+<p>Iterating over the entire volume is a common task. Most projects have multiple resolution levels, where higher levels are split into more and more “blocks”.</p>
+<p>In this example, we’ll determine how many resolution levels are in our volume, select the highest one, and iterate over each of its blocks.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
+
+<span class="n">project</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">get_project</span><span class="p">(</span><span class="s2">&quot;C:/path/to/project_file.syg&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get a dictionary showing the number of blocks in each level</span>
+<span class="n">resolution_map</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_resolution_map</span><span class="p">()</span>
+
+<span class="c1"># Calculate the index of the highest resolution level</span>
+<span class="n">max_resolution_level</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">resolution_map</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="c1"># Determine the number of blocks in this level</span>
+<span class="n">block_count</span> <span class="o">=</span> <span class="n">resolution_map</span><span class="p">[</span><span class="n">max_resolution_level</span><span class="p">]</span>
+
+<span class="c1"># Retrieve a block at each index</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">block_count</span><span class="p">):</span>
+
+  <span class="c1"># Because this image volume is static, we&#39;ll always use timepoint 0</span>
+  <span class="n">block</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_block</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_resolution_level</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+
+  <span class="c1"># The offset between the volume&#39;s origin and the block&#39;s origin</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">offset</span><span class="p">)</span>
+
+  <span class="c1"># The volumetric data as a numpy array (z, y, x, channel)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="retrieving-volumetric-data-around-points">
+<h3>Retrieving Volumetric Data Around Points<a class="headerlink" href="#retrieving-volumetric-data-around-points" title="Permalink to this headline">¶</a></h3>
+<p>You may, in some cases, be interested in analyzing the volumetric data around points. Typically these points come from annotations. For example, the image data
+surrounding some counting points could be used as input for a machine learning model, with the goal of automatically counting the remaining structures.</p>
+<p>The function <code class="docutils literal notranslate"><span class="pre">get_custom_block()</span></code> can be used to get a block of data of any size, at any location. It is more flexible than <code class="docutils literal notranslate"><span class="pre">get_block()</span></code> and <code class="docutils literal notranslate"><span class="pre">get_block_by_point()</span></code>,
+which retrieve blocks of predetermined sizes and positions.</p>
+<p>In this example, we retrieve a (100, 100, 100) voxel cube of the volume for each counting point. Each cube is centered around its corresponding annotation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">project</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">get_project</span><span class="p">(</span><span class="s2">&quot;C:/path/to/project_file.syg&quot;</span><span class="p">)</span>
+
+<span class="c1"># Determine the index of the highest resolution level</span>
+<span class="n">resolution</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">project</span><span class="o">.</span><span class="n">get_resolution_map</span><span class="p">())</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="c1"># Define a side length and dimensions for our cube</span>
+<span class="n">side_length</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">dimensions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">side_length</span><span class="p">)</span>
+
+<span class="c1"># Iterate over each point in each color series for the default experiment</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_counting_points</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
+  <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">[</span><span class="n">color</span><span class="p">]:</span>
+
+    <span class="c1"># Calculate the offset to each cube based on point position</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">point</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="o">-</span> <span class="n">side_length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+
+    <span class="c1"># Retrieve a full-resolution cube from the volume</span>
+    <span class="n">block</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_custom_block</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">resolution</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">dimensions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="counting">
+<h2>Counting<a class="headerlink" href="#counting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="changing-colors-of-counting-points">
+<h3>Changing Colors of Counting Points<a class="headerlink" href="#changing-colors-of-counting-points" title="Permalink to this headline">¶</a></h3>
+<p>Once retrieved, the color and position of counting points can be changed. Here we change the color of all of the red
+counting points in an experiment to green.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">project</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">get_project</span><span class="p">(</span><span class="s2">&quot;C:/path/to/project_file.syg&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get counting points for the default experiment</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_counting_points</span><span class="p">()</span>
+
+<span class="c1"># Copy red points to the green series, clear the red points</span>
+<span class="n">counts</span><span class="p">[</span><span class="s2">&quot;Green&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">counts</span><span class="p">[</span><span class="s2">&quot;Green&quot;</span><span class="p">],</span> <span class="n">counts</span><span class="p">[</span><span class="s2">&quot;Red&quot;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">counts</span><span class="p">[</span><span class="s2">&quot;Red&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="c1"># Save result as the new counting points for the default experiment</span>
+<span class="n">project</span><span class="o">.</span><span class="n">set_counting_points</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tracings-swcs">
+<h2>Tracings (SWCs)<a class="headerlink" href="#tracings-swcs" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="export-and-analyze">
+<h3>Export and Analyze<a class="headerlink" href="#export-and-analyze" title="Permalink to this headline">¶</a></h3>
+<p>Export tracings as SWC files, and analyze their morphology with the python module NeuroM.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+
+<span class="c1"># get the syGlass project</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">get_project</span><span class="p">(</span><span class="s2">&quot;E:/empty/empty.syg&quot;</span><span class="p">)</span>
+
+<span class="c1"># save the tracings (will export each disconnected component as a separate SWC file)</span>
+<span class="n">project</span><span class="o">.</span><span class="n">save_tracings</span><span class="p">()</span>
+
+<span class="c1"># find all the SWC files</span>
+<span class="n">matchingFiles</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.swc&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matchingFiles</span><span class="p">)</span>
+<span class="c1"># output: [&#39;output00000.swc&#39;, &#39;output00001.swc&#39;, &#39;output00002.swc&#39;]</span>
+
+<span class="c1"># get first SWC and load into NeuroM</span>
+<span class="kn">import</span> <span class="nn">neurom</span> <span class="k">as</span> <span class="nn">nm</span>
+<span class="n">nrn</span> <span class="o">=</span> <span class="n">nm</span><span class="o">.</span><span class="n">load_neuron</span><span class="p">(</span><span class="n">matchingFiles</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">nrnSegLen</span> <span class="o">=</span> <span class="n">nm</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;segment_lengths&#39;</span><span class="p">,</span> <span class="n">nrn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">nrnSegLen</span><span class="p">))</span>
+<span class="c1"># total length: 111945.68</span>
+
+<span class="c1"># calculate Sholl Analysis</span>
+<span class="n">nrnSholl</span> <span class="o">=</span> <span class="n">nm</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sholl_frequency&#39;</span><span class="p">,</span> <span class="n">nrn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nrnSholl</span><span class="p">)</span>
+<span class="c1"># sholl output: [  0.   8.  24.  33.  39.  52.  69.  68.  69.  79.  84.  78.  69.  78.  61. ... ]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">syglass</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#volumetric-data">Volumetric Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-project">Creating a Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#traversing-the-volume">Traversing the Volume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#retrieving-volumetric-data-around-points">Retrieving Volumetric Data Around Points</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#counting">Counting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#changing-colors-of-counting-points">Changing Colors of Counting Points</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tracings-swcs">Tracings (SWCs)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#export-and-analyze">Export and Analyze</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faqs.html">FAQs</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="installation.html" title="previous chapter">Installation</a></li>
+      <li>Next: <a href="faqs.html" title="next chapter">FAQs</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, IstoVisio.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/examples.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
