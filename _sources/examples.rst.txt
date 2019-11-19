@@ -102,13 +102,13 @@ In this example, we retrieve a (100, 100, 100) voxel cube of the volume for each
 	# Iterate over each point in each color series for the default experiment
 	counts = project.get_counting_points()
 	for color in counts:
-	  for point in counts[color]:
+		for point in counts[color]:
 
-	    # Calculate the offset to each cube based on point position
-	    offset = np.maximum(point.astype(int) - side_length / 2, np.zeros(3))
+			# Calculate the offset to each cube based on point position
+			offset = np.maximum(point.astype(int) - side_length / 2, np.zeros(3))
 
-	    # Retrieve a full-resolution cube from the volume
-	    block = project.get_custom_block(0, resolution, offset, dimensions)
+			# Retrieve a full-resolution cube from the volume
+			block = project.get_custom_block(0, resolution, offset, dimensions)
 
 Counting
 --------
@@ -138,6 +138,21 @@ counting points in an experiment to green.
 
 Tracings (SWCs)
 ---------------
+
+Importing SWC Files
+^^^^^^^^^^^^^^^^^^^
+
+Import a series of SWC files for viewing inside of a syGlass project.
+
+::
+
+    import syglass as sy
+    import glob
+    
+    project = sy.get_project("E:/empty/empty.syg")
+    l = glob.glob("C:/swcs/*.swc")
+    outcome = project.import_swcs(l, "default")
+
 
 Export and Analyze
 ^^^^^^^^^^^^^^^^^^
@@ -170,6 +185,24 @@ Export tracings as SWC files, and analyze their morphology with the python modul
 	# calculate Sholl Analysis 
 	nrnSholl = nm.get('sholl_frequency', nrn)
 	print(nrnSholl)
-	# sholl output: [  0.   8.  24.  33.  39.  52.  69.  68.  69.  79.  84.  78.  69.  78.  61. ... ]
+	# sholl output: [  0.  8.  24.  33.  39.  52.  69.  68.  69.  79.  84.  78.  69.  78.  61. ... ]
 
+
+Meshes (OBJ)
+-------------
+
+Import
+^^^^^^^
+
+Import a list of mesh files in the OBJ file format:
+
+::
+
+	import syglass as sy
+	import glob
+
+	# get the syGlass project
+	project = sy.get_project("C:/syGlass Projects/thor/thorlabs.syg")
+	l = glob.glob("C:/meshes/*.obj")
+	project.import_meshes(l, "default")
 
