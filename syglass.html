@@ -392,29 +392,6 @@ ranging from 0-255.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_multitracking_points">
-<code class="sig-name descname">get_multitracking_points</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; Dict<span class="p">[</span>str<span class="p">, </span>list<span class="p">]</span><a class="headerlink" href="#syglass.Project.get_multitracking_points" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a dictionary containing all of the multi tracking points associated
-with the given experiment. If no experiment is given, the default
-experiment is assumed. The dictionary has keys <code class="docutils literal notranslate"><span class="pre">&quot;Red&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Orange&quot;</span></code>,
-<code class="docutils literal notranslate"><span class="pre">&quot;Yellow&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Green&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Cyan&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Blue&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;Violet&quot;</span></code>,
-The color keys map to lists containing [zyx points,frame number,series number]. The 
-coordinates of these points are in voxels and are relative to the highest 
-resolution level.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>experiment</strong> – the name of the experiment from which to retrieve
-counting points</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>a dictionary containing all of the experiment’s multi tracking
-zyx points, their colors, their frame numbers, and 
-their series number</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt id="syglass.Project.get_name">
 <code class="sig-name descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#syglass.Project.get_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the string name of the project.</p>
@@ -639,28 +616,6 @@ counting points</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>experiment</strong> – the name of the experiment to make active</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="syglass.Project.set_multitracking_points">
-<code class="sig-name descname">set_multitracking_points</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">multi_points</span><span class="p">:</span> <span class="n">Mapping<span class="p">[</span>str<span class="p">, </span>list<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.set_multitracking_points" title="Permalink to this definition">¶</a></dt>
-<dd><p>Takes a dictionary containing all of the multitracking points to be
-associated with the given experiment. If no experiment is given, the
-default experiment is assumed. The dictionary should have keys
-<code class="docutils literal notranslate"><span class="pre">&quot;Red&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Orange&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Yellow&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Green&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Cyan&quot;</span></code>,
-<code class="docutils literal notranslate"><span class="pre">&quot;Blue&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;Violet&quot;</span></code>, which map to lists containing 
-[zyx points,frame number,series number].The coordinates of these points 
-should be in voxels, relative to the highest resolution level.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>multi_points</strong> – a dictionary containing zyx point, timepoint, 
-series number and color of each multitracking point</p></li>
-<li><p><strong>experiment</strong> – the name of the experiment from which to retrieve
-multitracking points</p></li>
-</ul>
 </dd>
 </dl>
 </dd></dl>

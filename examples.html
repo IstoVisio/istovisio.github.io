@@ -218,6 +218,35 @@ counting points in an experiment to green.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="getting-and-setting-multi-tracking-points">
+<h3>Getting and setting multi tracking points<a class="headerlink" href="#getting-and-setting-multi-tracking-points" title="Permalink to this headline">¶</a></h3>
+<p>Get and set the multi tracking points for a project</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+
+<span class="c1"># get the syGlass project</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">get_project</span><span class="p">(</span><span class="s2">&quot;C:/path/to/project_file.syg&quot;</span><span class="p">)</span>
+
+<span class="c1"># load the multi tracking points into a dict</span>
+<span class="n">pts</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_multitracking_points</span><span class="p">()</span>
+
+<span class="c1"># add two new points to the dict. One orange point and one violet point</span>
+<span class="n">pts</span><span class="p">[</span><span class="s1">&#39;Orange&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">30.02</span><span class="p">,</span> <span class="mf">23.02</span><span class="p">,</span> <span class="mf">19.02</span><span class="p">]),</span> <span class="mi">235</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="c1"># [[z,y,x], frame, series number]</span>
+<span class="n">pts</span><span class="p">[</span><span class="s1">&#39;Violet&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">45.02</span><span class="p">,</span> <span class="mf">22.042</span><span class="p">,</span> <span class="mf">5.03</span><span class="p">]),</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span> <span class="c1"># [[z,y,x], frame, series number]</span>
+
+<span class="c1"># set the projects new and updated multi tracking points</span>
+<span class="n">project</span><span class="o">.</span><span class="n">set_multitracking_points</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
+
+<span class="c1"># retrieve the updated points</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_multitracking_points</span><span class="p">()</span>
+
+<span class="c1"># display the dict with pretty print for organization</span>
+<span class="n">pp</span> <span class="o">=</span> <span class="n">pprint</span><span class="o">.</span><span class="n">PrettyPrinter</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -258,6 +287,7 @@ counting points in an experiment to green.</p>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#meshes-obj">Meshes (OBJ)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#import">Import</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-and-setting-multi-tracking-points">Getting and setting multi tracking points</a></li>
 </ul>
 </li>
 </ul>
