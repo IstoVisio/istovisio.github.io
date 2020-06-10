@@ -376,6 +376,24 @@ destroyed.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="syglass.Project.get_mask">
+<code class="sig-name descname">get_mask</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">roi_index</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#syglass.Block" title="syglass.Block">syglass.Block</a><a class="headerlink" href="#syglass.Project.get_mask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a given mask of the project’s volumetric data as a <code class="docutils literal notranslate"><span class="pre">Block</span></code> object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>roi_index</strong> – the index of which roi mask to be retreived</p></li>
+<li><p><strong>experiment</strong> – the name of the current experiment</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the mask of the project’s
+volumetric data stored in a <code class="docutils literal notranslate"><span class="pre">Block</span></code> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="syglass.Project.get_mesh_colors">
 <code class="sig-name descname">get_mesh_colors</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; Dict<span class="p">[</span>str<span class="p">, </span>Tuple<span class="p">[</span>int<span class="p">, </span>int<span class="p">, </span>int<span class="p">, </span>int<span class="p">]</span><span class="p">]</span><a class="headerlink" href="#syglass.Project.get_mesh_colors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dict of all the surface names mapping to their colors. The

@@ -136,6 +136,37 @@ counting points in an experiment to green.
 	# Save result as the new counting points for the default experiment
 	project.set_counting_points(counts)
 
+
+Get and Set the Multi-tracking Points for a Project
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+	import syglass as sy
+	import numpy as np 
+	import pprint 
+
+	# get the syGlass project
+	project = sy.get_project("C:/path/to/project_file.syg")
+
+	# load the multi tracking points into a dict
+	pts = project.get_multitracking_points()
+
+	# add two new points to the dict. One orange point and one violet point 
+	pts['Orange'].append([np.array([30.02, 23.02, 19.02]), 235, 3]) # [[z,y,x], frame, series number]
+	pts['Violet'].append([np.array([45.02, 22.042, 5.03]), 600, 4]) # [[z,y,x], frame, series number]
+
+	# set the projects new and updated multi tracking points 
+	project.set_multitracking_points(pts)
+
+	# retrieve the updated points 
+	out = project.get_multitracking_points()
+	
+	# display the dict with pretty print for organization 
+	pp = pprint.PrettyPrinter(indent=4)
+	pp.pprint(out)
+
+	
 Tracings (SWCs)
 ---------------
 
@@ -205,35 +236,3 @@ Import a list of mesh files in the OBJ file format:
 	project = sy.get_project("C:/syGlass Projects/thor/thorlabs.syg")
 	l = glob.glob("C:/meshes/*.obj")
 	project.import_meshes(l, "default")
-
-
-Getting and setting multi tracking points
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Get and set the multi tracking points for a project
-
-::
-
-	import syglass as sy
-	import numpy as np 
-	import pprint 
-
-	# get the syGlass project
-	project = sy.get_project("C:/path/to/project_file.syg")
-
-	# load the multi tracking points into a dict
-	pts = project.get_multitracking_points()
-
-	# add two new points to the dict. One orange point and one violet point 
-	pts['Orange'].append([np.array([30.02, 23.02, 19.02]), 235, 3]) # [[z,y,x], frame, series number]
-	pts['Violet'].append([np.array([45.02, 22.042, 5.03]), 600, 4]) # [[z,y,x], frame, series number]
-
-	# set the projects new and updated multi tracking points 
-	project.set_multitracking_points(pts)
-
-	# retrieve the updated points 
-	out = project.get_multitracking_points()
-	
-	# display the dict with pretty print for organization 
-	pp = pprint.PrettyPrinter(indent=4)
-	pp.pprint(out)
