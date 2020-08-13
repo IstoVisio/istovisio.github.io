@@ -247,6 +247,52 @@ counting points in an experiment to green.</p>
 </div>
 </div>
 </div>
+<div class="section" id="rois">
+<h2>ROIs<a class="headerlink" href="#rois" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="importing-and-exporting-roi-data">
+<h3>Importing and Exporting ROI data<a class="headerlink" href="#importing-and-exporting-roi-data" title="Permalink to this headline">¶</a></h3>
+<p>Export ROI data to numpy arrays and import an ROI to syGlass:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">tifffile</span>
+<span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
+
+<span class="c1"># get the syGlass project</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">get_project</span><span class="p">(</span><span class="s2">&quot;C:/path/to/project_file.syg&quot;</span><span class="p">)</span>
+
+<span class="c1"># get the raw ROI data block</span>
+<span class="n">roi_block</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_roi_data</span><span class="p">(</span><span class="n">roi_index</span><span class="p">)</span>
+
+<span class="c1"># display the shape of the ROI data numpy array</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">roi_block</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># save the ROI data as a tiff file</span>
+<span class="n">tifffile</span><span class="o">.</span><span class="n">imsave</span><span class="p">(</span><span class="s2">&quot;C:/path/to/tiff_file.tiff&quot;</span><span class="p">,</span> <span class="n">roi_block</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># get the mask block of the ROI</span>
+<span class="n">mask_block</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_mask</span><span class="p">(</span><span class="n">roi_index</span><span class="p">)</span>
+
+<span class="c1"># save the mask data as a tiff file</span>
+<span class="n">tifffile</span><span class="o">.</span><span class="n">imsave</span><span class="p">(</span><span class="s2">&quot;C:/path/to/tiff_file.tiff&quot;</span><span class="p">,</span> <span class="n">mask_block</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># get the min point of the ROI</span>
+<span class="n">project</span><span class="o">.</span><span class="n">get_min_roi_point</span><span class="p">(</span><span class="n">roi_index</span><span class="p">)</span>
+
+<span class="c1"># get the max point of the ROI</span>
+<span class="n">project</span><span class="o">.</span><span class="n">get_max_roi_point</span><span class="p">(</span><span class="n">roi_index</span><span class="p">)</span>
+
+<span class="c1"># get the ROI dimensions</span>
+<span class="n">project</span><span class="o">.</span><span class="n">get_roi_dimensions</span><span class="p">(</span><span class="n">roi_index</span><span class="p">)</span>
+
+<span class="c1"># get the ROI offset</span>
+<span class="n">project</span><span class="o">.</span><span class="n">get_roi_offset</span><span class="p">(</span><span class="n">roi_index</span><span class="p">)</span>
+
+<span class="c1"># import an ROI mask numpy array</span>
+<span class="n">incoming_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">project</span><span class="o">.</span><span class="n">import_mask</span><span class="p">(</span><span class="n">incoming_mask</span><span class="p">,</span> <span class="n">roi_mask</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -287,6 +333,10 @@ counting points in an experiment to green.</p>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#meshes-obj">Meshes (OBJ)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#import">Import</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rois">ROIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#importing-and-exporting-roi-data">Importing and Exporting ROI data</a></li>
 </ul>
 </li>
 </ul>
