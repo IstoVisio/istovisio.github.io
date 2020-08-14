@@ -236,3 +236,39 @@ Import a list of mesh files in the OBJ file format:
 	project = sy.get_project("C:/syGlass Projects/thor/thorlabs.syg")
 	l = glob.glob("C:/meshes/*.obj")
 	project.import_meshes(l, "default")
+
+
+ROIs
+----
+
+Importing and Exporting ROI Data
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Export ROI data to numpy arrays and import an ROI to syGlass:
+
+::
+
+	import numpy as np
+	import tifffile
+	import syglass as sy
+
+	# get the syGlass project 
+	project = sy.get_project("C:/path/to/project_file.syg")
+
+	roi_index = 1
+
+	# get the raw ROI data block 
+	roi_block = project.get_roi_data(roi_index)
+
+	# save the ROI data as a tiff file 
+	tifffile.imsave("C:/path/to/roiraw_tiff_file.tiff", roi_block.data)
+
+	# get the mask block of the ROI 
+	mask_block = project.get_mask(roi_index)
+
+	# save the mask data as a tiff file 
+	tifffile.imsave("C:/path/to/mask_tiff_file.tiff", mask_block.data)
+
+	# import an ROI mask numpy array (z,y,x,channel count)
+	incoming_mask = np.ones(100,100,100, 1)
+	project.import_mask(incoming_mask, roi_index)
