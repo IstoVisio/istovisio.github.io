@@ -336,6 +336,25 @@ project’s volumetric data</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="syglass.Project.get_distance_measurements">
+<code class="sig-name descname">get_distance_measurements</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; numpy.array<a class="headerlink" href="#syglass.Project.get_distance_measurements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a numpy array containing all distance measurements associated with the 
+given experiment. Each measurement is represented as a list of points. If no 
+experiment is given, the default experiment is assumed. The coordinates of these 
+points are in voxels and are relative to the highest resolution level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>experiment</strong> – the name of the experiment from which to retrieve
+counting points</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a numpy array containing all of the experiment’s lists of measurement
+points</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="syglass.Project.get_experiments">
 <code class="sig-name descname">get_experiments</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>str<span class="p">]</span><a class="headerlink" href="#syglass.Project.get_experiments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list of all the experiments in the current project.</p>
@@ -378,7 +397,8 @@ destroyed.</p>
 <dl class="py method">
 <dt id="syglass.Project.get_mask">
 <code class="sig-name descname">get_mask</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">roi_index</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#syglass.Block" title="syglass.Block">syglass.Block</a><a class="headerlink" href="#syglass.Project.get_mask" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a given mask of the project’s volumetric data as a <code class="docutils literal notranslate"><span class="pre">Block</span></code> object.</p>
+<dd><p>Returns a given mask of the project’s volumetric data as a <code class="docutils literal notranslate"><span class="pre">Block</span></code> object.
+Currently does not support time series data and only supports 8 bit and 16 bit data types for now.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -761,6 +781,24 @@ counting points</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>experiment</strong> – the name of the experiment to make active</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="syglass.Project.set_distance_measurements">
+<code class="sig-name descname">set_distance_measurements</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">measurement_points</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.set_distance_measurements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a numpy array containing lists of points to be added to the project
+as measurements in the given experiment. Each list of points will define a
+distance measurement inside of syGlass. If no experiment is given, 
+the default experiment is assumed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>measurement_points</strong> – a numpy array containing lists of x,y,z locations 
+for each measurement.</p></li>
+<li><p><strong>experiment</strong> – the name of the experiment to associate measurement points with.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
