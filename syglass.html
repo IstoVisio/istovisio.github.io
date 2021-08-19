@@ -4,14 +4,15 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>syglass package &#8212; syglass 0.18.dev0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
    
@@ -30,13 +31,13 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="syglass-package">
+  <section id="syglass-package">
 <h1>syglass package<a class="headerlink" href="#syglass-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-syglass">
+<section id="module-syglass">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-syglass" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="syglass.Block">
-<em class="property">class </em><code class="sig-prename descclassname">syglass.</code><code class="sig-name descname">Block</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">offset</span></em><span class="sig-paren">)</span><a class="headerlink" href="#syglass.Block" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Block">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">syglass.</span></span><span class="sig-name descname"><span class="pre">Block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#syglass.Block" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Instances of this class represent blocks of volumetric image data. These
 blocks can be retrieved from <code class="docutils literal notranslate"><span class="pre">Project</span></code> objects using a number of
@@ -50,15 +51,15 @@ bottom-left corner in either case.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="syglass.Project">
-<em class="property">class </em><code class="sig-prename descclassname">syglass.</code><code class="sig-name descname">Project</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_impl</span></em><span class="sig-paren">)</span><a class="headerlink" href="#syglass.Project" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">syglass.</span></span><span class="sig-name descname"><span class="pre">Project</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project_impl</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#syglass.Project" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Instances of this class represent syGlass projects. Instances can be
 created by calling <code class="docutils literal notranslate"><span class="pre">syglass.get_project()</span></code> with the string path to the
 project’s <code class="docutils literal notranslate"><span class="pre">.syg</span></code> file.</p>
 <dl class="py method">
-<dt id="syglass.Project.add_label_to_surface">
-<code class="sig-name descname">add_label_to_surface</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">label_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">surface_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.add_label_to_surface" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.add_label_to_surface">
+<span class="sig-name descname"><span class="pre">add_label_to_surface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#syglass.Project.add_label_to_surface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a label to a surface.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -73,8 +74,8 @@ label</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.add_new_experiment">
-<code class="sig-name descname">add_new_experiment</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.add_new_experiment" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.add_new_experiment">
+<span class="sig-name descname"><span class="pre">add_new_experiment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#syglass.Project.add_new_experiment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new, empty experiment.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -84,8 +85,8 @@ label</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.copy_experiment">
-<code class="sig-name descname">copy_experiment</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">destination</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.copy_experiment" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.copy_experiment">
+<span class="sig-name descname"><span class="pre">copy_experiment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#syglass.Project.copy_experiment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a copy of an existing experiment.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -98,8 +99,8 @@ label</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.copy_shader_settings_from_project">
-<code class="sig-name descname">copy_shader_settings_from_project</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#syglass.Project" title="syglass.Project">syglass.Project</a></span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.copy_shader_settings_from_project" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.copy_shader_settings_from_project">
+<span class="sig-name descname"><span class="pre">copy_shader_settings_from_project</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#syglass.Project" title="syglass.Project"><span class="pre">syglass.Project</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#syglass.Project.copy_shader_settings_from_project" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy the shader settings from one project to another.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -109,8 +110,8 @@ label</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.create_label">
-<code class="sig-name descname">create_label</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">label_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.create_label" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.create_label">
+<span class="sig-name descname"><span class="pre">create_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#syglass.Project.create_label" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new label to apply to surfaces.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -123,8 +124,8 @@ label</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.delete_all_surfaces">
-<code class="sig-name descname">delete_all_surfaces</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.delete_all_surfaces" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.delete_all_surfaces">
+<span class="sig-name descname"><span class="pre">delete_all_surfaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#syglass.Project.delete_all_surfaces" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes all surfaces in an experiment</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -134,8 +135,8 @@ label</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.delete_experiment">
-<code class="sig-name descname">delete_experiment</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.delete_experiment" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.delete_experiment">
+<span class="sig-name descname"><span class="pre">delete_experiment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#syglass.Project.delete_experiment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes the selected experiment.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -145,8 +146,8 @@ label</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.delete_label">
-<code class="sig-name descname">delete_label</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">label_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.delete_label" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.delete_label">
+<span class="sig-name descname"><span class="pre">delete_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#syglass.Project.delete_label" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete a label, removing it from all surfaces that have it</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -159,8 +160,8 @@ label</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.delete_surface">
-<code class="sig-name descname">delete_surface</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">surface_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.delete_surface" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.delete_surface">
+<span class="sig-name descname"><span class="pre">delete_surface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#syglass.Project.delete_surface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes a surface from an experiment</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -173,8 +174,8 @@ label</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_block">
-<code class="sig-name descname">get_block</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">timepoint</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">resolution_level</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">index</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#syglass.Block" title="syglass.Block">syglass.Block</a><a class="headerlink" href="#syglass.Project.get_block" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_block">
+<span class="sig-name descname"><span class="pre">get_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timepoint</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution_level</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#syglass.Block" title="syglass.Block"><span class="pre">syglass.Block</span></a></span></span><a class="headerlink" href="#syglass.Project.get_block" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a block of the project’s volumetric data as a <code class="docutils literal notranslate"><span class="pre">Block</span></code> object.
 To ensure that the block index you pass to this function is valid, you
 may use the function <code class="docutils literal notranslate"><span class="pre">get_resoultion_map()</span></code> to get a list containing
@@ -197,8 +198,8 @@ resolution level</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_block_by_point">
-<code class="sig-name descname">get_block_by_point</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">timepoint</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">resolution_level</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">point</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#syglass.Block" title="syglass.Block">syglass.Block</a><a class="headerlink" href="#syglass.Project.get_block_by_point" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_block_by_point">
+<span class="sig-name descname"><span class="pre">get_block_by_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timepoint</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution_level</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#syglass.Block" title="syglass.Block"><span class="pre">syglass.Block</span></a></span></span><a class="headerlink" href="#syglass.Project.get_block_by_point" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the block of the project’s volumetric data that contains the
 given point as a <code class="docutils literal notranslate"><span class="pre">Block</span></code> object. The point passed to this function
 should be a numpy array of length three with elements representing
@@ -224,8 +225,8 @@ given point as a <code class="docutils literal notranslate"><span class="pre">Bl
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_block_size">
-<code class="sig-name descname">get_block_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#syglass.Project.get_block_size" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_block_size">
+<span class="sig-name descname"><span class="pre">get_block_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#syglass.Project.get_block_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the dimensions in voxels of one block of the project’s
 volumetric data. The returned array has length 3, with each
 element describing the z-, y-, and x-dimension respectively.</p>
@@ -238,8 +239,8 @@ volumetric data</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_channel_count">
-<code class="sig-name descname">get_channel_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#syglass.Project.get_channel_count" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_channel_count">
+<span class="sig-name descname"><span class="pre">get_channel_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#syglass.Project.get_channel_count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the integer number of channels the project’s volumetric data
 contains. The result can be assumed to be in the range [0, 4], as
 syGlass projects support at most 4 channels.</p>
@@ -252,8 +253,8 @@ data</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_citation">
-<code class="sig-name descname">get_citation</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#syglass.Project.get_citation" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_citation">
+<span class="sig-name descname"><span class="pre">get_citation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#syglass.Project.get_citation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the stored citation for the project.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -263,8 +264,8 @@ data</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_counting_points">
-<code class="sig-name descname">get_counting_points</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; Dict<span class="p">[</span>str<span class="p">, </span>numpy.ndarray<span class="p">]</span><a class="headerlink" href="#syglass.Project.get_counting_points" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_counting_points">
+<span class="sig-name descname"><span class="pre">get_counting_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#syglass.Project.get_counting_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary containing all of the counting points associated
 with the given experiment. If no experiment is given, the default
 experiment is assumed. The dictionary has keys <code class="docutils literal notranslate"><span class="pre">&quot;Red&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Orange&quot;</span></code>,
@@ -285,8 +286,8 @@ points, their locations, and their colors</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_current_experiment">
-<code class="sig-name descname">get_current_experiment</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#syglass.Project.get_current_experiment" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_current_experiment">
+<span class="sig-name descname"><span class="pre">get_current_experiment</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#syglass.Project.get_current_experiment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the current active experiment.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -296,8 +297,8 @@ points, their locations, and their colors</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_custom_block">
-<code class="sig-name descname">get_custom_block</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">timepoint</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">resolution_level</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">offset</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em>, <em class="sig-param"><span class="n">dimensions</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#syglass.Block" title="syglass.Block">syglass.Block</a><a class="headerlink" href="#syglass.Project.get_custom_block" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_custom_block">
+<span class="sig-name descname"><span class="pre">get_custom_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timepoint</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution_level</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimensions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#syglass.Block" title="syglass.Block"><span class="pre">syglass.Block</span></a></span></span><a class="headerlink" href="#syglass.Project.get_custom_block" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a <code class="docutils literal notranslate"><span class="pre">Block</span></code> object of custom offset and dimensions.
 Rather than pulling a block directly from the syGlass project, this
 pulls as many blocks as necessary and stitches them together into a
@@ -323,8 +324,8 @@ to the bottom-left corner of the block</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_data_type">
-<code class="sig-name descname">get_data_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#syglass.ProjectDataType" title="syglass.ProjectDataType">syglass.ProjectDataType</a><a class="headerlink" href="#syglass.Project.get_data_type" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_data_type">
+<span class="sig-name descname"><span class="pre">get_data_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#syglass.ProjectDataType" title="syglass.ProjectDataType"><span class="pre">syglass.ProjectDataType</span></a></span></span><a class="headerlink" href="#syglass.Project.get_data_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a variant of the ProjectDataType enum describing the type of
 the project’s volumetric data.</p>
 <dl class="field-list simple">
@@ -336,8 +337,8 @@ project’s volumetric data</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_distance_measurements">
-<code class="sig-name descname">get_distance_measurements</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; numpy.array<a class="headerlink" href="#syglass.Project.get_distance_measurements" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_distance_measurements">
+<span class="sig-name descname"><span class="pre">get_distance_measurements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.array</span></span></span><a class="headerlink" href="#syglass.Project.get_distance_measurements" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a numpy array containing all distance measurements associated with the 
 given experiment. Each measurement is represented as a list of points. If no 
 experiment is given, the default experiment is assumed. The coordinates of these 
@@ -355,8 +356,8 @@ points</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_experiments">
-<code class="sig-name descname">get_experiments</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>str<span class="p">]</span><a class="headerlink" href="#syglass.Project.get_experiments" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_experiments">
+<span class="sig-name descname"><span class="pre">get_experiments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#syglass.Project.get_experiments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list of all the experiments in the current project.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -366,8 +367,8 @@ points</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_is_signed">
-<code class="sig-name descname">get_is_signed</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#syglass.Project.get_is_signed" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_is_signed">
+<span class="sig-name descname"><span class="pre">get_is_signed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#syglass.Project.get_is_signed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the project is signed, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.
 Signed projects are immutable because they have been designated as
 read-only. Changes made to metadata and annotations of signed projects
@@ -381,8 +382,8 @@ destroyed.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_labels">
-<code class="sig-name descname">get_labels</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>str<span class="p">]</span><a class="headerlink" href="#syglass.Project.get_labels" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_labels">
+<span class="sig-name descname"><span class="pre">get_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#syglass.Project.get_labels" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns all the labels that exist in the given experiment</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -395,8 +396,8 @@ destroyed.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_mask">
-<code class="sig-name descname">get_mask</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">roi_index</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#syglass.Block" title="syglass.Block">syglass.Block</a><a class="headerlink" href="#syglass.Project.get_mask" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_mask">
+<span class="sig-name descname"><span class="pre">get_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">roi_index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#syglass.Block" title="syglass.Block"><span class="pre">syglass.Block</span></a></span></span><a class="headerlink" href="#syglass.Project.get_mask" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a given mask of the project’s volumetric data as a <code class="docutils literal notranslate"><span class="pre">Block</span></code> object.
 Currently does not support time series data and only supports 8 bit and 16 bit data types for now.</p>
 <dl class="field-list simple">
@@ -414,8 +415,8 @@ volumetric data stored in a <code class="docutils literal notranslate"><span cla
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_max_roi_point">
-<code class="sig-name descname">get_max_roi_point</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">roi_index</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#syglass.Project.get_max_roi_point" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_max_roi_point">
+<span class="sig-name descname"><span class="pre">get_max_roi_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">roi_index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#syglass.Project.get_max_roi_point" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the max point of an ROI given its index. The coordinates of these 
 points are in voxels and their origin is with respect to the center of the volume.</p>
 <dl class="field-list simple">
@@ -432,8 +433,8 @@ points are in voxels and their origin is with respect to the center of the volum
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_mesh_colors">
-<code class="sig-name descname">get_mesh_colors</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; Dict<span class="p">[</span>str<span class="p">, </span>Tuple<span class="p">[</span>int<span class="p">, </span>int<span class="p">, </span>int<span class="p">, </span>int<span class="p">]</span><span class="p">]</span><a class="headerlink" href="#syglass.Project.get_mesh_colors" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_mesh_colors">
+<span class="sig-name descname"><span class="pre">get_mesh_colors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#syglass.Project.get_mesh_colors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dict of all the surface names mapping to their colors. The
 colors are formatted as a 4 element tuple containing R,G,B,A values
 ranging from 0-255.</p>
@@ -448,8 +449,8 @@ ranging from 0-255.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_min_roi_point">
-<code class="sig-name descname">get_min_roi_point</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">roi_index</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#syglass.Project.get_min_roi_point" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_min_roi_point">
+<span class="sig-name descname"><span class="pre">get_min_roi_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">roi_index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#syglass.Project.get_min_roi_point" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the minimum point of an ROI given its index. The coordinates of these 
 points are in voxels and their origin is with respect to the center of the volume.</p>
 <dl class="field-list simple">
@@ -466,8 +467,8 @@ points are in voxels and their origin is with respect to the center of the volum
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_multitracking_points">
-<code class="sig-name descname">get_multitracking_points</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; Dict<span class="p">[</span>str<span class="p">, </span>list<span class="p">]</span><a class="headerlink" href="#syglass.Project.get_multitracking_points" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_multitracking_points">
+<span class="sig-name descname"><span class="pre">get_multitracking_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#syglass.Project.get_multitracking_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary containing all of the multi tracking points associated
 with the given experiment. If no experiment is given, the default
 experiment is assumed. The dictionary has keys <code class="docutils literal notranslate"><span class="pre">&quot;Red&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Orange&quot;</span></code>,
@@ -489,8 +490,8 @@ their series number</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_name">
-<code class="sig-name descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#syglass.Project.get_name" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_name">
+<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#syglass.Project.get_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the string name of the project.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -500,8 +501,8 @@ their series number</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_path_to_syg_file">
-<code class="sig-name descname">get_path_to_syg_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#syglass.Project.get_path_to_syg_file" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_path_to_syg_file">
+<span class="sig-name descname"><span class="pre">get_path_to_syg_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#syglass.Project.get_path_to_syg_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the full path to the syg file of the current project.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -511,8 +512,8 @@ their series number</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_resolution_map">
-<code class="sig-name descname">get_resolution_map</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#syglass.Project.get_resolution_map" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_resolution_map">
+<span class="sig-name descname"><span class="pre">get_resolution_map</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#syglass.Project.get_resolution_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list of resolution levels and the number of blocks within
 each. The length of the returned list is the number of resolution
 levels in the project. The value at each resolution level is the
@@ -526,8 +527,8 @@ each</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_roi_data">
-<code class="sig-name descname">get_roi_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">roi_index</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#syglass.Block" title="syglass.Block">syglass.Block</a><a class="headerlink" href="#syglass.Project.get_roi_data" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_roi_data">
+<span class="sig-name descname"><span class="pre">get_roi_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">roi_index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#syglass.Block" title="syglass.Block"><span class="pre">syglass.Block</span></a></span></span><a class="headerlink" href="#syglass.Project.get_roi_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a given ROI of the project’s volumetric data as a <code class="docutils literal notranslate"><span class="pre">Block</span></code> object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -543,8 +544,8 @@ each</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_roi_dimensions">
-<code class="sig-name descname">get_roi_dimensions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">roi_index</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#syglass.Project.get_roi_dimensions" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_roi_dimensions">
+<span class="sig-name descname"><span class="pre">get_roi_dimensions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">roi_index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#syglass.Project.get_roi_dimensions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the dimensions of an ROI given its index.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -560,8 +561,8 @@ each</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_roi_offset">
-<code class="sig-name descname">get_roi_offset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">roi_index</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#syglass.Project.get_roi_offset" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_roi_offset">
+<span class="sig-name descname"><span class="pre">get_roi_offset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">roi_index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#syglass.Project.get_roi_offset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the offset in voxels of a ROI given its index. The ROI offset 
 is the distance from the bottom-left corner of the volume to 
 the bottom-left corner of the ROI.</p>
@@ -579,8 +580,8 @@ the bottom-left corner of the ROI.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_size">
-<code class="sig-name descname">get_size</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">resolution_level</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#syglass.Project.get_size" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_size">
+<span class="sig-name descname"><span class="pre">get_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resolution_level</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#syglass.Project.get_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the dimensions in voxels of the project’s volumetric data at
 the given resolution. The returned array has length 3, with each
 element describing the z-, y-, and x-dimension respectively. To get
@@ -600,8 +601,8 @@ the given resolution</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_surface_labels">
-<code class="sig-name descname">get_surface_labels</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">surface_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>str<span class="p">]</span><a class="headerlink" href="#syglass.Project.get_surface_labels" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_surface_labels">
+<span class="sig-name descname"><span class="pre">get_surface_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#syglass.Project.get_surface_labels" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list of all labels currently applied on a surface.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -618,8 +619,8 @@ experiment</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_surface_names_and_sizes">
-<code class="sig-name descname">get_surface_names_and_sizes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; Dict<span class="p">[</span>str<span class="p">, </span>Tuple<span class="p">[</span>int<span class="p">, </span>int<span class="p">]</span><span class="p">]</span><a class="headerlink" href="#syglass.Project.get_surface_names_and_sizes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_surface_names_and_sizes">
+<span class="sig-name descname"><span class="pre">get_surface_names_and_sizes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#syglass.Project.get_surface_names_and_sizes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dict of all the surface names mapping to their size. The size
 is represented as a tuple of two ints. The two ints are their vertices
 and faces respectively.</p>
@@ -634,8 +635,8 @@ and faces respectively.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_timepoint_count">
-<code class="sig-name descname">get_timepoint_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#syglass.Project.get_timepoint_count" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_timepoint_count">
+<span class="sig-name descname"><span class="pre">get_timepoint_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#syglass.Project.get_timepoint_count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the integer number of timepoints or frames in the project’s
 volumetric data. For static volumes, this is always 1. For time-series
 data, it is always &gt; 1.</p>
@@ -648,8 +649,8 @@ data</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_voxel_dimensions">
-<code class="sig-name descname">get_voxel_dimensions</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#syglass.Project.get_voxel_dimensions" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_voxel_dimensions">
+<span class="sig-name descname"><span class="pre">get_voxel_dimensions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#syglass.Project.get_voxel_dimensions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the physical dimensions of the voxels in the project’s
 volumetric data as a numpy array. The returned array has length 3,
 with each element describing the z-, y-, and x-dimension respectively.
@@ -664,8 +665,8 @@ volumetric data</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.get_voxel_unit">
-<code class="sig-name descname">get_voxel_unit</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#syglass.Project.get_voxel_unit" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.get_voxel_unit">
+<span class="sig-name descname"><span class="pre">get_voxel_unit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#syglass.Project.get_voxel_unit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a string describing the unit of the project’s voxel dimensions,
 e.g. <code class="docutils literal notranslate"><span class="pre">&quot;nm&quot;</span></code>.</p>
 <dl class="field-list simple">
@@ -676,8 +677,8 @@ e.g. <code class="docutils literal notranslate"><span class="pre">&quot;nm&quot;
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.import_mask">
-<code class="sig-name descname">import_mask</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mask</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em>, <em class="sig-param"><span class="n">roi_index</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.import_mask" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.import_mask">
+<span class="sig-name descname"><span class="pre">import_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roi_index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#syglass.Project.import_mask" title="Permalink to this definition">¶</a></dt>
 <dd><p>Imports a mask containing less than 255 labels to apply to an ROI.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -691,22 +692,22 @@ e.g. <code class="docutils literal notranslate"><span class="pre">&quot;nm&quot;
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.import_meshes">
-<code class="sig-name descname">import_meshes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">list_of_OBJ_paths</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.import_meshes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.import_meshes">
+<span class="sig-name descname"><span class="pre">import_meshes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_of_OBJ_paths</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#syglass.Project.import_meshes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Imports a collection of OBJ files into a project. 
 :param list_of_OBJ_paths: list of file paths, one for each OBJ file to import</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.import_swcs">
-<code class="sig-name descname">import_swcs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">list_of_SWC_paths</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.import_swcs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.import_swcs">
+<span class="sig-name descname"><span class="pre">import_swcs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_of_SWC_paths</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#syglass.Project.import_swcs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Imports a collection of SWC files into a project. 
 :param list_of_SWC_paths: list of file paths, one for each SWC file to import</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.remove_label_from_surface">
-<code class="sig-name descname">remove_label_from_surface</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">label_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">surface_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.remove_label_from_surface" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.remove_label_from_surface">
+<span class="sig-name descname"><span class="pre">remove_label_from_surface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#syglass.Project.remove_label_from_surface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove a label from a surface</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -721,8 +722,8 @@ label</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.save_tracings">
-<code class="sig-name descname">save_tracings</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em>, <em class="sig-param"><span class="n">directory</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'./'</span></em>, <em class="sig-param"><span class="n">base_name</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'output.swc'</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.save_tracings" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.save_tracings">
+<span class="sig-name descname"><span class="pre">save_tracings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'./'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'output.swc'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#syglass.Project.save_tracings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Saves all of the tracings, in the SWC file format, to a directory.
 Read more about the SWC format here:
 <a class="reference external" href="http://research.mssm.edu/cnic/swc.html">http://research.mssm.edu/cnic/swc.html</a></p>
@@ -742,8 +743,8 @@ points, their locations, and their colors</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.set_citation">
-<code class="sig-name descname">set_citation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">citation</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.set_citation" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.set_citation">
+<span class="sig-name descname"><span class="pre">set_citation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">citation</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#syglass.Project.set_citation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the stored citation for the project.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -753,8 +754,8 @@ points, their locations, and their colors</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.set_counting_points">
-<code class="sig-name descname">set_counting_points</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">counting_points</span><span class="p">:</span> <span class="n">Mapping<span class="p">[</span>str<span class="p">, </span>numpy.ndarray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.set_counting_points" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.set_counting_points">
+<span class="sig-name descname"><span class="pre">set_counting_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">counting_points</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#syglass.Project.set_counting_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Takes a dictionary containing all of the counting points to be
 associated with the given experiment. If no experiment is given, the
 default experiment is assumed. The dictionary should have keys
@@ -775,8 +776,8 @@ counting points</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.set_current_experiment">
-<code class="sig-name descname">set_current_experiment</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.set_current_experiment" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.set_current_experiment">
+<span class="sig-name descname"><span class="pre">set_current_experiment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#syglass.Project.set_current_experiment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the current active experiment.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -786,8 +787,8 @@ counting points</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.set_distance_measurements">
-<code class="sig-name descname">set_distance_measurements</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">measurement_points</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.set_distance_measurements" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.set_distance_measurements">
+<span class="sig-name descname"><span class="pre">set_distance_measurements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">measurement_points</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#syglass.Project.set_distance_measurements" title="Permalink to this definition">¶</a></dt>
 <dd><p>Takes a numpy array containing lists of points to be added to the project
 as measurements in the given experiment. Each list of points will define a
 distance measurement inside of syGlass. If no experiment is given, 
@@ -804,8 +805,8 @@ for each measurement.</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.set_multitracking_points">
-<code class="sig-name descname">set_multitracking_points</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">multi_points</span><span class="p">:</span> <span class="n">Mapping<span class="p">[</span>str<span class="p">, </span>list<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.set_multitracking_points" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.set_multitracking_points">
+<span class="sig-name descname"><span class="pre">set_multitracking_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">multi_points</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#syglass.Project.set_multitracking_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Takes a dictionary containing all of the multitracking points to be
 associated with the given experiment. If no experiment is given, the
 default experiment is assumed. The dictionary should have keys
@@ -826,8 +827,8 @@ multitracking points</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.set_surface_color">
-<code class="sig-name descname">set_surface_color</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">surface_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">color</span><span class="p">:</span> <span class="n">Tuple<span class="p">[</span>int<span class="p">, </span>int<span class="p">, </span>int<span class="p">, </span>int<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">experiment</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.set_surface_color" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.set_surface_color">
+<span class="sig-name descname"><span class="pre">set_surface_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#syglass.Project.set_surface_color" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the color of a surface.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -843,8 +844,8 @@ order r,g,b,a</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.set_voxel_dimensions">
-<code class="sig-name descname">set_voxel_dimensions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">voxel_dimensions</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.set_voxel_dimensions" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.set_voxel_dimensions">
+<span class="sig-name descname"><span class="pre">set_voxel_dimensions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">voxel_dimensions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#syglass.Project.set_voxel_dimensions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the physical dimensions of the voxels in the project’s volumetric
 data. A numpy array of length 3 should be passed to this function,
 with each element representing the z-, y-, and x-dimension
@@ -858,8 +859,8 @@ the project’s volumetric data</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="syglass.Project.set_voxel_unit">
-<code class="sig-name descname">set_voxel_unit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">voxel_unit</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#syglass.Project.set_voxel_unit" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.Project.set_voxel_unit">
+<span class="sig-name descname"><span class="pre">set_voxel_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">voxel_unit</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#syglass.Project.set_voxel_unit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the string description for the unit of the project’s voxel
 dimensions, e.g. <code class="docutils literal notranslate"><span class="pre">&quot;nm&quot;</span></code>.</p>
 <dl class="field-list simple">
@@ -873,8 +874,8 @@ voxel dimensions</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="syglass.ProjectCreationSettings">
-<em class="property">class </em><code class="sig-prename descclassname">syglass.</code><code class="sig-name descname">ProjectCreationSettings</code><a class="headerlink" href="#syglass.ProjectCreationSettings" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.ProjectCreationSettings">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">syglass.</span></span><span class="sig-name descname"><span class="pre">ProjectCreationSettings</span></span><a class="headerlink" href="#syglass.ProjectCreationSettings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Instances of this class represent configurations of project creation
 settings.</p>
@@ -885,41 +886,41 @@ type strings.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="syglass.ProjectDataType">
-<em class="property">class </em><code class="sig-prename descclassname">syglass.</code><code class="sig-name descname">ProjectDataType</code><a class="headerlink" href="#syglass.ProjectDataType" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.ProjectDataType">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">syglass.</span></span><span class="sig-name descname"><span class="pre">ProjectDataType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#syglass.ProjectDataType" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
 <p>Enum of the data types supported by syGlass. Calling <cite>get_data_type()</cite> on
 a <cite>Project</cite> will return one of these variants.</p>
 <dl class="py attribute">
-<dt id="syglass.ProjectDataType.FLOAT">
-<code class="sig-name descname">FLOAT</code><em class="property"> = 4</em><a class="headerlink" href="#syglass.ProjectDataType.FLOAT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.ProjectDataType.FLOAT">
+<span class="sig-name descname"><span class="pre">FLOAT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">4</span></em><a class="headerlink" href="#syglass.ProjectDataType.FLOAT" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="syglass.ProjectDataType.HALF_FLOAT">
-<code class="sig-name descname">HALF_FLOAT</code><em class="property"> = 3</em><a class="headerlink" href="#syglass.ProjectDataType.HALF_FLOAT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.ProjectDataType.HALF_FLOAT">
+<span class="sig-name descname"><span class="pre">HALF_FLOAT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">3</span></em><a class="headerlink" href="#syglass.ProjectDataType.HALF_FLOAT" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="syglass.ProjectDataType.UINT16">
-<code class="sig-name descname">UINT16</code><em class="property"> = 1</em><a class="headerlink" href="#syglass.ProjectDataType.UINT16" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.ProjectDataType.UINT16">
+<span class="sig-name descname"><span class="pre">UINT16</span></span><em class="property"> <span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#syglass.ProjectDataType.UINT16" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="syglass.ProjectDataType.UINT32">
-<code class="sig-name descname">UINT32</code><em class="property"> = 2</em><a class="headerlink" href="#syglass.ProjectDataType.UINT32" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.ProjectDataType.UINT32">
+<span class="sig-name descname"><span class="pre">UINT32</span></span><em class="property"> <span class="pre">=</span> <span class="pre">2</span></em><a class="headerlink" href="#syglass.ProjectDataType.UINT32" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="syglass.ProjectDataType.UINT8">
-<code class="sig-name descname">UINT8</code><em class="property"> = 0</em><a class="headerlink" href="#syglass.ProjectDataType.UINT8" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.ProjectDataType.UINT8">
+<span class="sig-name descname"><span class="pre">UINT8</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#syglass.ProjectDataType.UINT8" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
-<dt id="syglass.create_project">
-<code class="sig-prename descclassname">syglass.</code><code class="sig-name descname">create_project</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reference_files</span><span class="p">:</span> <span class="n">Iterable<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">destination</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">settings</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#syglass.ProjectCreationSettings" title="syglass.ProjectCreationSettings">syglass.ProjectCreationSettings</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#syglass.Project" title="syglass.Project">syglass.Project</a><a class="headerlink" href="#syglass.create_project" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.create_project">
+<span class="sig-prename descclassname"><span class="pre">syglass.</span></span><span class="sig-name descname"><span class="pre">create_project</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reference_files</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#syglass.ProjectCreationSettings" title="syglass.ProjectCreationSettings"><span class="pre">syglass.ProjectCreationSettings</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#syglass.Project" title="syglass.Project"><span class="pre">syglass.Project</span></a></span></span><a class="headerlink" href="#syglass.create_project" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -937,8 +938,8 @@ with the desired attributes</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="syglass.get_project">
-<code class="sig-prename descclassname">syglass.</code><code class="sig-name descname">get_project</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#syglass.Project" title="syglass.Project">syglass.Project</a><a class="headerlink" href="#syglass.get_project" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.get_project">
+<span class="sig-prename descclassname"><span class="pre">syglass.</span></span><span class="sig-name descname"><span class="pre">get_project</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#syglass.Project" title="syglass.Project"><span class="pre">syglass.Project</span></a></span></span><a class="headerlink" href="#syglass.get_project" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a string path to a valid <code class="docutils literal notranslate"><span class="pre">.syg</span></code> file, returns a <code class="docutils literal notranslate"><span class="pre">Project</span></code> object
 that represents that syGlass project.</p>
 <dl class="field-list simple">
@@ -952,8 +953,8 @@ that represents that syGlass project.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="syglass.is_project">
-<code class="sig-prename descclassname">syglass.</code><code class="sig-name descname">is_project</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#syglass.is_project" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="syglass.is_project">
+<span class="sig-prename descclassname"><span class="pre">syglass.</span></span><span class="sig-name descname"><span class="pre">is_project</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#syglass.is_project" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a string path, returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if that path points to a valid
 syGlass project and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
 <dl class="field-list simple">
@@ -967,8 +968,8 @@ project</p>
 </dl>
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -1004,7 +1005,7 @@ project</p>
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -1026,7 +1027,7 @@ project</p>
       &copy;2019, IstoVisio.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.4</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

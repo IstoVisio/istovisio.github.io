@@ -4,7 +4,7 @@ Installation
 Installation of the ``syglass`` Python module is done via ``pip``, a simple package management system included with
 most installations of Python.
 
-Note that you will need Python 3.7 to use the ``syglass`` module. If you need to use another verision of Python, please contact us at info@syglass.io.
+Note that you will need Python 3.4 or greater to use the ``syglass`` module.
 
 
 Installing
@@ -12,11 +12,11 @@ Installing
 
 Installation is performed using ``pip`` through the command line as follows: ::
 
-	pip install -i https://test.pypi.org/simple/ syGlass
+	pip install syglass
 
 Updating an existing installation is similar: ::
 
-	pip install -i https://test.pypi.org/simple/ syGlass --upgrade
+	pip install syglass --upgrade
 
 Uninstalling
 --------------
