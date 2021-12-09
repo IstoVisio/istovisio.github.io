@@ -56,6 +56,10 @@
 <span class="c1"># create a DataProvider to the dataProvider the file list</span>
 <span class="n">dataProvider</span> <span class="o">=</span> <span class="n">pyglass</span><span class="o">.</span><span class="n">OpenTIFFs</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">GetFileList</span><span class="p">(),</span> <span class="kc">False</span><span class="p">)</span>
 
+<span class="c1"># indicate which channels to include; in this case, all channels from the file</span>
+<span class="n">includedChannels</span> <span class="o">=</span> <span class="n">pyglass</span><span class="o">.</span><span class="n">IntList</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">dataProvider</span><span class="o">.</span><span class="n">GetChannelsCount</span><span class="p">()))</span>
+<span class="n">dataProvider</span><span class="o">.</span><span class="n">SetIncludedChannels</span><span class="p">(</span><span class="n">includedChannels</span><span class="p">)</span>
+
 <span class="c1"># spawn a ConversionDriver to convert the data</span>
 <span class="n">cd</span> <span class="o">=</span> <span class="n">pyglass</span><span class="o">.</span><span class="n">ConversionDriver</span><span class="p">()</span>
 
@@ -67,6 +71,12 @@
 
 <span class="c1"># start the job!</span>
 <span class="n">cd</span><span class="o">.</span><span class="n">StartAsynchronous</span><span class="p">()</span>
+
+<span class="c1"># report progress</span>
+<span class="k">while</span> <span class="n">cd</span><span class="o">.</span><span class="n">GetPercentage</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">cd</span><span class="o">.</span><span class="n">GetPercentage</span><span class="p">())</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finished!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -367,7 +377,7 @@ counting points in an experiment to green.</p>
       &copy;2019, IstoVisio.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

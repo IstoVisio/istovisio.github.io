@@ -27,6 +27,10 @@ In this example, we'll create a project file from a series of tiffs.
 	
 	# create a DataProvider to the dataProvider the file list
 	dataProvider = pyglass.OpenTIFFs(dd.GetFileList(), False)
+
+	# indicate which channels to include; in this case, all channels from the file
+	includedChannels = pyglass.IntList(range(dataProvider.GetChannelsCount()))
+	dataProvider.SetIncludedChannels(includedChannels)
 	
 	# spawn a ConversionDriver to convert the data
 	cd = pyglass.ConversionDriver()
@@ -39,6 +43,12 @@ In this example, we'll create a project file from a series of tiffs.
 	
 	# start the job!
 	cd.StartAsynchronous()
+
+	# report progress
+	while cd.GetPercentage() != 100:
+		print(cd.GetPercentage())
+		time.sleep(1)
+	print("Finished!")
 
 Traversing the Volume
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
