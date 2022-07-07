@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,6 +11,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
@@ -90,13 +91,23 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="syglass.html#syglass.Project.delete_all_surfaces">delete_all_surfaces() (syglass.Project method)</a>
 </li>
+      <li><a href="syglass.html#syglass.Project.delete_counting_points">delete_counting_points() (syglass.Project method)</a>
+</li>
       <li><a href="syglass.html#syglass.Project.delete_experiment">delete_experiment() (syglass.Project method)</a>
+</li>
+      <li><a href="syglass.html#syglass.Project.delete_label">delete_label() (syglass.Project method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="syglass.html#syglass.Project.delete_label">delete_label() (syglass.Project method)</a>
+      <li><a href="syglass.html#syglass.Project.delete_multi_tracking_series">delete_multi_tracking_series() (syglass.Project method)</a>
+</li>
+      <li><a href="syglass.html#syglass.Project.delete_multivariate_data">delete_multivariate_data() (syglass.Project method)</a>
 </li>
       <li><a href="syglass.html#syglass.Project.delete_surface">delete_surface() (syglass.Project method)</a>
+</li>
+      <li><a href="syglass.html#syglass.Project.delete_tracking_points">delete_tracking_points() (syglass.Project method)</a>
+</li>
+      <li><a href="syglass.html#syglass.Project.dvid_delete_label">dvid_delete_label() (syglass.Project method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -142,15 +153,27 @@
 </li>
       <li><a href="syglass.html#syglass.Project.get_max_roi_point">get_max_roi_point() (syglass.Project method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="syglass.html#syglass.Project.get_mesh_colors">get_mesh_colors() (syglass.Project method)</a>
 </li>
       <li><a href="syglass.html#syglass.Project.get_min_roi_point">get_min_roi_point() (syglass.Project method)</a>
 </li>
       <li><a href="syglass.html#syglass.Project.get_multitracking_points">get_multitracking_points() (syglass.Project method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="syglass.html#syglass.Project.get_name">get_name() (syglass.Project method)</a>
+</li>
+      <li><a href="syglass.html#syglass.Project.get_number_of_counting_points">get_number_of_counting_points() (syglass.Project method)</a>
+</li>
+      <li><a href="syglass.html#syglass.Project.get_number_of_measurements">get_number_of_measurements() (syglass.Project method)</a>
+</li>
+      <li><a href="syglass.html#syglass.Project.get_number_of_multi_tracking_series">get_number_of_multi_tracking_series() (syglass.Project method)</a>
+</li>
+      <li><a href="syglass.html#syglass.Project.get_number_of_multivariate_data_points">get_number_of_multivariate_data_points() (syglass.Project method)</a>
+</li>
+      <li><a href="syglass.html#syglass.Project.get_number_of_tracing_nodes">get_number_of_tracing_nodes() (syglass.Project method)</a>
+</li>
+      <li><a href="syglass.html#syglass.Project.get_number_of_tracking_points">get_number_of_tracking_points() (syglass.Project method)</a>
 </li>
       <li><a href="syglass.html#syglass.Project.get_path_to_syg_file">get_path_to_syg_file() (syglass.Project method)</a>
 </li>
@@ -233,7 +256,13 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="syglass.html#syglass.Project.randomize_mesh_colors">randomize_mesh_colors() (syglass.Project method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="syglass.html#syglass.Project.remove_label_from_surface">remove_label_from_surface() (syglass.Project method)</a>
+</li>
+      <li><a href="syglass.html#syglass.Project.rename_mesh">rename_mesh() (syglass.Project method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -251,9 +280,13 @@
 </li>
       <li><a href="syglass.html#syglass.Project.set_distance_measurements">set_distance_measurements() (syglass.Project method)</a>
 </li>
+      <li><a href="syglass.html#syglass.Project.set_mesh_label_opacity">set_mesh_label_opacity() (syglass.Project method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="syglass.html#syglass.Project.set_multitracking_points">set_multitracking_points() (syglass.Project method)</a>
+</li>
+      <li><a href="syglass.html#syglass.Project.set_sample_weight">set_sample_weight() (syglass.Project method)</a>
 </li>
       <li><a href="syglass.html#syglass.Project.set_surface_color">set_surface_color() (syglass.Project method)</a>
 </li>
@@ -325,7 +358,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -342,7 +375,7 @@
       &copy;2019, IstoVisio.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

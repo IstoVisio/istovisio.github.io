@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Usage Examples &#8212; syglass 0.18.dev0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
@@ -12,6 +12,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -34,11 +35,11 @@
           <div class="body" role="main">
             
   <section id="usage-examples">
-<h1>Usage Examples<a class="headerlink" href="#usage-examples" title="Permalink to this headline">¶</a></h1>
+<h1>Usage Examples<a class="headerlink" href="#usage-examples" title="Permalink to this heading">¶</a></h1>
 <section id="volumetric-data">
-<h2>Volumetric Data<a class="headerlink" href="#volumetric-data" title="Permalink to this headline">¶</a></h2>
+<h2>Volumetric Data<a class="headerlink" href="#volumetric-data" title="Permalink to this heading">¶</a></h2>
 <section id="creating-a-project">
-<h3>Creating a Project<a class="headerlink" href="#creating-a-project" title="Permalink to this headline">¶</a></h3>
+<h3>Creating a Project<a class="headerlink" href="#creating-a-project" title="Permalink to this heading">¶</a></h3>
 <p>Programmatic creation of projects can be useful for rapid viewing of data after collection.</p>
 <p>In this example, we’ll create a project file from a series of tiffs.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">syglass</span> <span class="kn">import</span> <span class="n">pyglass</span>
@@ -81,7 +82,7 @@
 </div>
 </section>
 <section id="traversing-the-volume">
-<h3>Traversing the Volume<a class="headerlink" href="#traversing-the-volume" title="Permalink to this headline">¶</a></h3>
+<h3>Traversing the Volume<a class="headerlink" href="#traversing-the-volume" title="Permalink to this heading">¶</a></h3>
 <p>Iterating over the entire volume is a common task. Most projects have multiple resolution levels, where higher levels are split into more and more “blocks”.</p>
 <p>In this example, we’ll determine how many resolution levels are in our volume, select the highest one, and iterate over each of its blocks.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
@@ -112,7 +113,7 @@
 </div>
 </section>
 <section id="retrieving-volumetric-data-around-points">
-<h3>Retrieving Volumetric Data Around Points<a class="headerlink" href="#retrieving-volumetric-data-around-points" title="Permalink to this headline">¶</a></h3>
+<h3>Retrieving Volumetric Data Around Points<a class="headerlink" href="#retrieving-volumetric-data-around-points" title="Permalink to this heading">¶</a></h3>
 <p>You may, in some cases, be interested in analyzing the volumetric data around points. Typically these points come from annotations. For example, the image data
 surrounding some counting points could be used as input for a machine learning model, with the goal of automatically counting the remaining structures.</p>
 <p>The function <code class="docutils literal notranslate"><span class="pre">get_custom_block()</span></code> can be used to get a block of data of any size, at any location. It is more flexible than <code class="docutils literal notranslate"><span class="pre">get_block()</span></code> and <code class="docutils literal notranslate"><span class="pre">get_block_by_point()</span></code>,
@@ -145,9 +146,9 @@ which retrieve blocks of predetermined sizes and positions.</p>
 </section>
 </section>
 <section id="counting">
-<h2>Counting<a class="headerlink" href="#counting" title="Permalink to this headline">¶</a></h2>
+<h2>Counting<a class="headerlink" href="#counting" title="Permalink to this heading">¶</a></h2>
 <section id="changing-colors-of-counting-points">
-<h3>Changing Colors of Counting Points<a class="headerlink" href="#changing-colors-of-counting-points" title="Permalink to this headline">¶</a></h3>
+<h3>Changing Colors of Counting Points<a class="headerlink" href="#changing-colors-of-counting-points" title="Permalink to this heading">¶</a></h3>
 <p>Once retrieved, the color and position of counting points can be changed. Here we change the color of all of the red
 counting points in an experiment to green.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
@@ -168,7 +169,7 @@ counting points in an experiment to green.</p>
 </div>
 </section>
 <section id="get-and-set-the-multi-tracking-points-for-a-project">
-<h3>Get and Set the Multi-tracking Points for a Project<a class="headerlink" href="#get-and-set-the-multi-tracking-points-for-a-project" title="Permalink to this headline">¶</a></h3>
+<h3>Get and Set the Multi-tracking Points for a Project<a class="headerlink" href="#get-and-set-the-multi-tracking-points-for-a-project" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pprint</span>
@@ -197,9 +198,9 @@ counting points in an experiment to green.</p>
 </section>
 </section>
 <section id="tracings-swcs">
-<h2>Tracings (SWCs)<a class="headerlink" href="#tracings-swcs" title="Permalink to this headline">¶</a></h2>
+<h2>Tracings (SWCs)<a class="headerlink" href="#tracings-swcs" title="Permalink to this heading">¶</a></h2>
 <section id="importing-swc-files">
-<h3>Importing SWC Files<a class="headerlink" href="#importing-swc-files" title="Permalink to this headline">¶</a></h3>
+<h3>Importing SWC Files<a class="headerlink" href="#importing-swc-files" title="Permalink to this heading">¶</a></h3>
 <p>Import a series of SWC files for viewing inside of a syGlass project.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
 <span class="kn">import</span> <span class="nn">glob</span>
@@ -211,7 +212,7 @@ counting points in an experiment to green.</p>
 </div>
 </section>
 <section id="export-and-analyze">
-<h3>Export and Analyze<a class="headerlink" href="#export-and-analyze" title="Permalink to this headline">¶</a></h3>
+<h3>Export and Analyze<a class="headerlink" href="#export-and-analyze" title="Permalink to this heading">¶</a></h3>
 <p>Export tracings as SWC files, and analyze their morphology with the python module NeuroM.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
 <span class="kn">import</span> <span class="nn">glob</span>
@@ -243,9 +244,9 @@ counting points in an experiment to green.</p>
 </section>
 </section>
 <section id="meshes-obj">
-<h2>Meshes (OBJ)<a class="headerlink" href="#meshes-obj" title="Permalink to this headline">¶</a></h2>
+<h2>Meshes (OBJ)<a class="headerlink" href="#meshes-obj" title="Permalink to this heading">¶</a></h2>
 <section id="import">
-<h3>Import<a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h3>
+<h3>Import<a class="headerlink" href="#import" title="Permalink to this heading">¶</a></h3>
 <p>Import a list of mesh files in the OBJ file format:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
 <span class="kn">import</span> <span class="nn">glob</span>
@@ -259,9 +260,9 @@ counting points in an experiment to green.</p>
 </section>
 </section>
 <section id="rois">
-<h2>ROIs<a class="headerlink" href="#rois" title="Permalink to this headline">¶</a></h2>
+<h2>ROIs<a class="headerlink" href="#rois" title="Permalink to this heading">¶</a></h2>
 <section id="importing-and-exporting-roi-data">
-<h3>Importing and Exporting ROI Data<a class="headerlink" href="#importing-and-exporting-roi-data" title="Permalink to this headline">¶</a></h3>
+<h3>Importing and Exporting ROI Data<a class="headerlink" href="#importing-and-exporting-roi-data" title="Permalink to this heading">¶</a></h3>
 <p>Export ROI data to numpy arrays and import an ROI to syGlass:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">tifffile</span>
@@ -360,7 +361,7 @@ counting points in an experiment to green.</p>
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -377,7 +378,7 @@ counting points in an experiment to green.</p>
       &copy;2019, IstoVisio.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
