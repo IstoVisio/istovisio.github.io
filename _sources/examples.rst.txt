@@ -9,21 +9,22 @@ Creating a Project
 
 Programmatic creation of projects can be useful for rapid viewing of data after collection.
 
-In this example, we'll create a project file from a series of tiffs.
+In this example, we'll create a project file from a series of TIFFs.
 
 ::
 
 	from syglass import pyglass
 	import syglass as sy
+	import time
 
 	# create a project by specifing a path and the name of the project to be created. In this case, we'll call the project autoGenProject.
 	project = pyglass.CreateProject(pyglass.path("C:\\syGlassProjects"), "autoGenProject")
 	
-	# create a DirectoryDescriptor to search a folder for tiff that match a pattern
+	# create a DirectoryDescriptor to search a folder for TIFFs that match a pattern
 	dd = pyglass.DirectoryDescription()
 	
 	# show the directoryDescriptor the first image of the set, and it will create a file list of matching slices
-	dd.InspectByReferenceFile("C:\\raw_data\\example0000.tif"))
+	dd.InspectByReferenceFile("C:\\raw_data\\example0000.tif")
 	
 	# create a DataProvider to the dataProvider the file list
 	dataProvider = pyglass.OpenTIFFs(dd.GetFileList(), False)
@@ -50,6 +51,55 @@ In this example, we'll create a project file from a series of tiffs.
 		time.sleep(1)
 	print("Finished!")
 
+
+Adding Mask Data to Projects
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Segmentations or masks can be added to a project, provided that they are stored in image files with the same dimensions as the project.
+
+In this example, we'll create add a segmentation layer to an existing project.
+
+::
+
+	from syglass import pyglass
+	import syglass as sy
+	import time
+
+	# the mask data is stored in a syGlass project format with a special .syk extension
+	project = pyglass.CreateProject(pyglass.path("C:\\pathToExistingProject\\"), "projectName.syk", True)
+
+	# create a DirectoryDescriptor to search a folder for TIFFs that match a pattern
+	dd = pyglass.DirectoryDescription()
+
+	# show the directoryDescriptor the first image of the set, and it will create a file list of matching slices
+	dd.InspectByReferenceFile("C:\\maskData\\maskData_Z-00000.tiff")
+
+	# create a DataProvider to the dataProvider the file list
+	dataProvider = pyglass.OpenTIFFs(dd.GetFileList(), False)
+
+	# indicate which channels to include; in this case, all channels from the file
+	includedChannels = pyglass.IntList(range(dataProvider.GetChannelsCount()))
+	dataProvider.SetIncludedChannels(includedChannels)
+
+	# spawn a ConversionDriver to convert the data
+	cd = pyglass.ConversionDriver(True)
+
+	# set the ConversionDriver input to the data provider
+	cd.SetInput(dataProvider)
+
+	# set the ConversionDriver output to the project previously created
+	cd.SetOutput(project)
+
+	# start the job!
+	cd.StartAsynchronous()
+
+	# report progress
+	while cd.GetPercentage() != 100:
+		print(cd.GetPercentage())
+		time.sleep(1)
+	print("Finished!")
+
+
 Traversing the Volume
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -75,14 +125,15 @@ In this example, we'll determine how many resolution levels are in our volume, s
 	# Retrieve a block at each index
 	for i in range(block_count):
 
-	  # Because this image volume is static, we'll always use timepoint 0
-	  block = project.get_block(0, max_resolution_level, i)
+	# Because this image volume is static, we'll always use timepoint 0
+	block = project.get_block(0, max_resolution_level, i)
 
-	  # The offset between the volume's origin and the block's origin
-	  print(block.offset)
+	# The offset between the volume's origin and the block's origin
+	print(block.offset)
 
-	  # The volumetric data as a numpy array (z, y, x, channel)
-	  print(block.data)
+	# The volumetric data as a numpy array (z, y, x, channel)
+	print(block.data)
+
 
 Retrieving Volumetric Data Around Points
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

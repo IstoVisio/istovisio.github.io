@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Usage Examples &#8212; syglass 0.18.dev0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
@@ -14,6 +14,7 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="FAQs" href="faqs.html" />
@@ -41,18 +42,19 @@
 <section id="creating-a-project">
 <h3>Creating a Project<a class="headerlink" href="#creating-a-project" title="Permalink to this heading">¶</a></h3>
 <p>Programmatic creation of projects can be useful for rapid viewing of data after collection.</p>
-<p>In this example, we’ll create a project file from a series of tiffs.</p>
+<p>In this example, we’ll create a project file from a series of TIFFs.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">syglass</span> <span class="kn">import</span> <span class="n">pyglass</span>
 <span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
+<span class="kn">import</span> <span class="nn">time</span>
 
 <span class="c1"># create a project by specifing a path and the name of the project to be created. In this case, we&#39;ll call the project autoGenProject.</span>
 <span class="n">project</span> <span class="o">=</span> <span class="n">pyglass</span><span class="o">.</span><span class="n">CreateProject</span><span class="p">(</span><span class="n">pyglass</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">syGlassProjects&quot;</span><span class="p">),</span> <span class="s2">&quot;autoGenProject&quot;</span><span class="p">)</span>
 
-<span class="c1"># create a DirectoryDescriptor to search a folder for tiff that match a pattern</span>
+<span class="c1"># create a DirectoryDescriptor to search a folder for TIFFs that match a pattern</span>
 <span class="n">dd</span> <span class="o">=</span> <span class="n">pyglass</span><span class="o">.</span><span class="n">DirectoryDescription</span><span class="p">()</span>
 
 <span class="c1"># show the directoryDescriptor the first image of the set, and it will create a file list of matching slices</span>
-<span class="n">dd</span><span class="o">.</span><span class="n">InspectByReferenceFile</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">raw_data</span><span class="se">\\</span><span class="s2">example0000.tif&quot;</span><span class="p">))</span>
+<span class="n">dd</span><span class="o">.</span><span class="n">InspectByReferenceFile</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">raw_data</span><span class="se">\\</span><span class="s2">example0000.tif&quot;</span><span class="p">)</span>
 
 <span class="c1"># create a DataProvider to the dataProvider the file list</span>
 <span class="n">dataProvider</span> <span class="o">=</span> <span class="n">pyglass</span><span class="o">.</span><span class="n">OpenTIFFs</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">GetFileList</span><span class="p">(),</span> <span class="kc">False</span><span class="p">)</span>
@@ -63,6 +65,50 @@
 
 <span class="c1"># spawn a ConversionDriver to convert the data</span>
 <span class="n">cd</span> <span class="o">=</span> <span class="n">pyglass</span><span class="o">.</span><span class="n">ConversionDriver</span><span class="p">()</span>
+
+<span class="c1"># set the ConversionDriver input to the data provider</span>
+<span class="n">cd</span><span class="o">.</span><span class="n">SetInput</span><span class="p">(</span><span class="n">dataProvider</span><span class="p">)</span>
+
+<span class="c1"># set the ConversionDriver output to the project previously created</span>
+<span class="n">cd</span><span class="o">.</span><span class="n">SetOutput</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
+
+<span class="c1"># start the job!</span>
+<span class="n">cd</span><span class="o">.</span><span class="n">StartAsynchronous</span><span class="p">()</span>
+
+<span class="c1"># report progress</span>
+<span class="k">while</span> <span class="n">cd</span><span class="o">.</span><span class="n">GetPercentage</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">cd</span><span class="o">.</span><span class="n">GetPercentage</span><span class="p">())</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finished!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="adding-mask-data-to-projects">
+<h3>Adding Mask Data to Projects<a class="headerlink" href="#adding-mask-data-to-projects" title="Permalink to this heading">¶</a></h3>
+<p>Segmentations or masks can be added to a project, provided that they are stored in image files with the same dimensions as the project.</p>
+<p>In this example, we’ll create add a segmentation layer to an existing project.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">syglass</span> <span class="kn">import</span> <span class="n">pyglass</span>
+<span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># the mask data is stored in a syGlass project format with a special .syk extension</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">pyglass</span><span class="o">.</span><span class="n">CreateProject</span><span class="p">(</span><span class="n">pyglass</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">pathToExistingProject</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">),</span> <span class="s2">&quot;projectName.syk&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># create a DirectoryDescriptor to search a folder for TIFFs that match a pattern</span>
+<span class="n">dd</span> <span class="o">=</span> <span class="n">pyglass</span><span class="o">.</span><span class="n">DirectoryDescription</span><span class="p">()</span>
+
+<span class="c1"># show the directoryDescriptor the first image of the set, and it will create a file list of matching slices</span>
+<span class="n">dd</span><span class="o">.</span><span class="n">InspectByReferenceFile</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">maskData</span><span class="se">\\</span><span class="s2">maskData_Z-00000.tiff&quot;</span><span class="p">)</span>
+
+<span class="c1"># create a DataProvider to the dataProvider the file list</span>
+<span class="n">dataProvider</span> <span class="o">=</span> <span class="n">pyglass</span><span class="o">.</span><span class="n">OpenTIFFs</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">GetFileList</span><span class="p">(),</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># indicate which channels to include; in this case, all channels from the file</span>
+<span class="n">includedChannels</span> <span class="o">=</span> <span class="n">pyglass</span><span class="o">.</span><span class="n">IntList</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">dataProvider</span><span class="o">.</span><span class="n">GetChannelsCount</span><span class="p">()))</span>
+<span class="n">dataProvider</span><span class="o">.</span><span class="n">SetIncludedChannels</span><span class="p">(</span><span class="n">includedChannels</span><span class="p">)</span>
+
+<span class="c1"># spawn a ConversionDriver to convert the data</span>
+<span class="n">cd</span> <span class="o">=</span> <span class="n">pyglass</span><span class="o">.</span><span class="n">ConversionDriver</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># set the ConversionDriver input to the data provider</span>
 <span class="n">cd</span><span class="o">.</span><span class="n">SetInput</span><span class="p">(</span><span class="n">dataProvider</span><span class="p">)</span>
@@ -101,14 +147,14 @@
 <span class="c1"># Retrieve a block at each index</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">block_count</span><span class="p">):</span>
 
-  <span class="c1"># Because this image volume is static, we&#39;ll always use timepoint 0</span>
-  <span class="n">block</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_block</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_resolution_level</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<span class="c1"># Because this image volume is static, we&#39;ll always use timepoint 0</span>
+<span class="n">block</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_block</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_resolution_level</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
 
-  <span class="c1"># The offset between the volume&#39;s origin and the block&#39;s origin</span>
-  <span class="nb">print</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">offset</span><span class="p">)</span>
+<span class="c1"># The offset between the volume&#39;s origin and the block&#39;s origin</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">offset</span><span class="p">)</span>
 
-  <span class="c1"># The volumetric data as a numpy array (z, y, x, channel)</span>
-  <span class="nb">print</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="c1"># The volumetric data as a numpy array (z, y, x, channel)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -316,6 +362,7 @@ counting points in an experiment to green.</p>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Usage Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#volumetric-data">Volumetric Data</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#creating-a-project">Creating a Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-mask-data-to-projects">Adding Mask Data to Projects</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#traversing-the-volume">Traversing the Volume</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#retrieving-volumetric-data-around-points">Retrieving Volumetric Data Around Points</a></li>
 </ul>
@@ -378,7 +425,7 @@ counting points in an experiment to green.</p>
       &copy;2019, IstoVisio.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
