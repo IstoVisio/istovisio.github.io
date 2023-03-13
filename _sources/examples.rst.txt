@@ -57,7 +57,7 @@ Adding Mask Data to Projects
 
 Segmentations or masks can be added to a project, provided that they are stored in image files with the same dimensions as the project.
 
-In this example, we'll create add a segmentation layer to an existing project.
+In this example, we'll add a segmentation layer to an existing project.
 
 ::
 

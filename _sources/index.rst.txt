@@ -19,8 +19,14 @@ Content Overview
    installation
    examples
    faqs
+
    
 Detailed Documentation
 -----------------------
+
+.. toctree::
+   :maxdepth: 3
+
+   modules
 
 * :ref:`genindex`
