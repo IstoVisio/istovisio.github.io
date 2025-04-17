@@ -171,6 +171,49 @@ In this example, we retrieve a (100, 100, 100) voxel cube of the volume for each
 			# Retrieve a full-resolution cube from the volume
 			block = project.get_custom_block(0, resolution, offset, dimensions)
 
+
+Retrieving Mask Data
+^^^^^^^^^^^^^^^^^^^^^
+
+Segmentations or masks can be extracted from a project.
+
+In this example, we export the segmentation from each timepoint in a time series project.
+
+::
+
+	import tifffile
+	import syglass as sy
+	from syglass import pyglass
+
+	project = sy.get_project("C:/path/to/project_file.syg")
+
+	# Create mask extractor
+	mask_extractor = pyglass.MaskOctreeRasterExtractor(None)
+
+	# Determine the index of the highest resolution level
+	resolution_map = project.get_resolution_map()
+	max_resolution_level = len(resolution_map) - 1
+
+	# Define the dimensions
+	dimensions = project.get_size(max_resolution_level)
+
+	# Determine number of frames in project's volumetric data
+	frame_count = project.get_timepoint_count()
+
+	for timepoint in range(frame_count):
+
+		# Determine dimensions and offset of frame
+		vec3_dimensions = pyglass.vec3(float(dimensions[2]), float(dimensions[1]), float(dimensions[0]))
+		vec3_offset = pyglass.vec3(float(0), float(0), float(0))
+
+		# Retrieve the mask as a raster image from the block
+		raster = mask_extractor.GetCustomBlock(project.impl, timepoint, max_resolution_level, vec3_offset, vec3_dimensions)
+		mask_array = pyglass.GetRasterAsNumpyArray(raster)
+
+		# Save tiff in current directory
+		tifffile.imwrite(f"mask_image_timepoint-{timepoint}.tif", mask_array)
+
+
 Counting
 --------
 
