@@ -1,20 +1,17 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Usage Examples &#8212; syglass 0.18.dev0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=0aa3d227"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="FAQs" href="faqs.html" />
@@ -22,8 +19,9 @@
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -36,16 +34,16 @@
           <div class="body" role="main">
             
   <section id="usage-examples">
-<h1>Usage Examples<a class="headerlink" href="#usage-examples" title="Permalink to this heading">¶</a></h1>
+<h1>Usage Examples<a class="headerlink" href="#usage-examples" title="Link to this heading">¶</a></h1>
 <section id="volumetric-data">
-<h2>Volumetric Data<a class="headerlink" href="#volumetric-data" title="Permalink to this heading">¶</a></h2>
+<h2>Volumetric Data<a class="headerlink" href="#volumetric-data" title="Link to this heading">¶</a></h2>
 <section id="creating-a-project">
-<h3>Creating a Project<a class="headerlink" href="#creating-a-project" title="Permalink to this heading">¶</a></h3>
+<h3>Creating a Project<a class="headerlink" href="#creating-a-project" title="Link to this heading">¶</a></h3>
 <p>Programmatic creation of projects can be useful for rapid viewing of data after collection.</p>
 <p>In this example, we’ll create a project file from a series of TIFFs.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">syglass</span> <span class="kn">import</span> <span class="n">pyglass</span>
-<span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">syglass</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyglass</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">syglass</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
 <span class="c1"># create a project by specifing a path and the name of the project to be created. In this case, we&#39;ll call the project autoGenProject.</span>
 <span class="n">project</span> <span class="o">=</span> <span class="n">pyglass</span><span class="o">.</span><span class="n">CreateProject</span><span class="p">(</span><span class="n">pyglass</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">syGlassProjects&quot;</span><span class="p">),</span> <span class="s2">&quot;autoGenProject&quot;</span><span class="p">)</span>
@@ -84,12 +82,12 @@
 </div>
 </section>
 <section id="adding-mask-data-to-projects">
-<h3>Adding Mask Data to Projects<a class="headerlink" href="#adding-mask-data-to-projects" title="Permalink to this heading">¶</a></h3>
+<h3>Adding Mask Data to Projects<a class="headerlink" href="#adding-mask-data-to-projects" title="Link to this heading">¶</a></h3>
 <p>Segmentations or masks can be added to a project, provided that they are stored in image files with the same dimensions as the project.</p>
 <p>In this example, we’ll add a segmentation layer to an existing project.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">syglass</span> <span class="kn">import</span> <span class="n">pyglass</span>
-<span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">syglass</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyglass</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">syglass</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
 <span class="c1"># the mask data is stored in a syGlass project format with a special .syk extension</span>
 <span class="n">project</span> <span class="o">=</span> <span class="n">pyglass</span><span class="o">.</span><span class="n">CreateProject</span><span class="p">(</span><span class="n">pyglass</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">pathToExistingProject</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">),</span> <span class="s2">&quot;projectName.syk&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
@@ -128,10 +126,10 @@
 </div>
 </section>
 <section id="traversing-the-volume">
-<h3>Traversing the Volume<a class="headerlink" href="#traversing-the-volume" title="Permalink to this heading">¶</a></h3>
+<h3>Traversing the Volume<a class="headerlink" href="#traversing-the-volume" title="Link to this heading">¶</a></h3>
 <p>Iterating over the entire volume is a common task. Most projects have multiple resolution levels, where higher levels are split into more and more “blocks”.</p>
 <p>In this example, we’ll determine how many resolution levels are in our volume, select the highest one, and iterate over each of its blocks.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">syglass</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sy</span>
 
 <span class="n">project</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">get_project</span><span class="p">(</span><span class="s2">&quot;C:/path/to/project_file.syg&quot;</span><span class="p">)</span>
 
@@ -159,14 +157,14 @@
 </div>
 </section>
 <section id="retrieving-volumetric-data-around-points">
-<h3>Retrieving Volumetric Data Around Points<a class="headerlink" href="#retrieving-volumetric-data-around-points" title="Permalink to this heading">¶</a></h3>
+<h3>Retrieving Volumetric Data Around Points<a class="headerlink" href="#retrieving-volumetric-data-around-points" title="Link to this heading">¶</a></h3>
 <p>You may, in some cases, be interested in analyzing the volumetric data around points. Typically these points come from annotations. For example, the image data
 surrounding some counting points could be used as input for a machine learning model, with the goal of automatically counting the remaining structures.</p>
 <p>The function <code class="docutils literal notranslate"><span class="pre">get_custom_block()</span></code> can be used to get a block of data of any size, at any location. It is more flexible than <code class="docutils literal notranslate"><span class="pre">get_block()</span></code> and <code class="docutils literal notranslate"><span class="pre">get_block_by_point()</span></code>,
 which retrieve blocks of predetermined sizes and positions.</p>
 <p>In this example, we retrieve a (100, 100, 100) voxel cube of the volume for each counting point. Each cube is centered around its corresponding annotation.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">syglass</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">project</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">get_project</span><span class="p">(</span><span class="s2">&quot;C:/path/to/project_file.syg&quot;</span><span class="p">)</span>
 
@@ -190,15 +188,53 @@ which retrieve blocks of predetermined sizes and positions.</p>
 </pre></div>
 </div>
 </section>
+<section id="retrieving-mask-data">
+<h3>Retrieving Mask Data<a class="headerlink" href="#retrieving-mask-data" title="Link to this heading">¶</a></h3>
+<p>Segmentations or masks can be extracted from a project.</p>
+<p>In this example, we export the segmentation from each timepoint in a time series project.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">tifffile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">syglass</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">syglass</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyglass</span>
+
+<span class="n">project</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">get_project</span><span class="p">(</span><span class="s2">&quot;C:/path/to/project_file.syg&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create mask extractor</span>
+<span class="n">mask_extractor</span> <span class="o">=</span> <span class="n">pyglass</span><span class="o">.</span><span class="n">MaskOctreeRasterExtractor</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="c1"># Determine the index of the highest resolution level</span>
+<span class="n">resolution_map</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_resolution_map</span><span class="p">()</span>
+<span class="n">max_resolution_level</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">resolution_map</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="c1"># Define the dimensions</span>
+<span class="n">dimensions</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_size</span><span class="p">(</span><span class="n">max_resolution_level</span><span class="p">)</span>
+
+<span class="c1"># Determine number of frames in project&#39;s volumetric data</span>
+<span class="n">frame_count</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_timepoint_count</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">timepoint</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">frame_count</span><span class="p">):</span>
+
+        <span class="c1"># Determine dimensions and offset of frame</span>
+        <span class="n">vec3_dimensions</span> <span class="o">=</span> <span class="n">pyglass</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">dimensions</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">dimensions</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">dimensions</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">vec3_offset</span> <span class="o">=</span> <span class="n">pyglass</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+
+        <span class="c1"># Retrieve the mask as a raster image from the block</span>
+        <span class="n">raster</span> <span class="o">=</span> <span class="n">mask_extractor</span><span class="o">.</span><span class="n">GetCustomBlock</span><span class="p">(</span><span class="n">project</span><span class="o">.</span><span class="n">impl</span><span class="p">,</span> <span class="n">timepoint</span><span class="p">,</span> <span class="n">max_resolution_level</span><span class="p">,</span> <span class="n">vec3_offset</span><span class="p">,</span> <span class="n">vec3_dimensions</span><span class="p">)</span>
+        <span class="n">mask_array</span> <span class="o">=</span> <span class="n">pyglass</span><span class="o">.</span><span class="n">GetRasterAsNumpyArray</span><span class="p">(</span><span class="n">raster</span><span class="p">)</span>
+
+        <span class="c1"># Save tiff in current directory</span>
+        <span class="n">tifffile</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;mask_image_timepoint-</span><span class="si">{</span><span class="n">timepoint</span><span class="si">}</span><span class="s2">.tif&quot;</span><span class="p">,</span> <span class="n">mask_array</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="counting">
-<h2>Counting<a class="headerlink" href="#counting" title="Permalink to this heading">¶</a></h2>
+<h2>Counting<a class="headerlink" href="#counting" title="Link to this heading">¶</a></h2>
 <section id="changing-colors-of-counting-points">
-<h3>Changing Colors of Counting Points<a class="headerlink" href="#changing-colors-of-counting-points" title="Permalink to this heading">¶</a></h3>
+<h3>Changing Colors of Counting Points<a class="headerlink" href="#changing-colors-of-counting-points" title="Link to this heading">¶</a></h3>
 <p>Once retrieved, the color and position of counting points can be changed. Here we change the color of all of the red
 counting points in an experiment to green.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">syglass</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">project</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">get_project</span><span class="p">(</span><span class="s2">&quot;C:/path/to/project_file.syg&quot;</span><span class="p">)</span>
 
@@ -215,10 +251,10 @@ counting points in an experiment to green.</p>
 </div>
 </section>
 <section id="get-and-set-the-multi-tracking-points-for-a-project">
-<h3>Get and Set the Multi-tracking Points for a Project<a class="headerlink" href="#get-and-set-the-multi-tracking-points-for-a-project" title="Permalink to this heading">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pprint</span>
+<h3>Get and Set the Multi-tracking Points for a Project<a class="headerlink" href="#get-and-set-the-multi-tracking-points-for-a-project" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">syglass</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pprint</span>
 
 <span class="c1"># get the syGlass project</span>
 <span class="n">project</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">get_project</span><span class="p">(</span><span class="s2">&quot;C:/path/to/project_file.syg&quot;</span><span class="p">)</span>
@@ -244,12 +280,12 @@ counting points in an experiment to green.</p>
 </section>
 </section>
 <section id="tracings-swcs">
-<h2>Tracings (SWCs)<a class="headerlink" href="#tracings-swcs" title="Permalink to this heading">¶</a></h2>
+<h2>Tracings (SWCs)<a class="headerlink" href="#tracings-swcs" title="Link to this heading">¶</a></h2>
 <section id="importing-swc-files">
-<h3>Importing SWC Files<a class="headerlink" href="#importing-swc-files" title="Permalink to this heading">¶</a></h3>
+<h3>Importing SWC Files<a class="headerlink" href="#importing-swc-files" title="Link to this heading">¶</a></h3>
 <p>Import a series of SWC files for viewing inside of a syGlass project.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
-<span class="kn">import</span> <span class="nn">glob</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">syglass</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
 
 <span class="n">project</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">get_project</span><span class="p">(</span><span class="s2">&quot;E:/empty/empty.syg&quot;</span><span class="p">)</span>
 <span class="n">l</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;C:/swcs/*.swc&quot;</span><span class="p">)</span>
@@ -258,10 +294,10 @@ counting points in an experiment to green.</p>
 </div>
 </section>
 <section id="export-and-analyze">
-<h3>Export and Analyze<a class="headerlink" href="#export-and-analyze" title="Permalink to this heading">¶</a></h3>
+<h3>Export and Analyze<a class="headerlink" href="#export-and-analyze" title="Link to this heading">¶</a></h3>
 <p>Export tracings as SWC files, and analyze their morphology with the python module NeuroM.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
-<span class="kn">import</span> <span class="nn">glob</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">syglass</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
 
 <span class="c1"># get the syGlass project</span>
 <span class="n">project</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">get_project</span><span class="p">(</span><span class="s2">&quot;E:/empty/empty.syg&quot;</span><span class="p">)</span>
@@ -275,7 +311,7 @@ counting points in an experiment to green.</p>
 <span class="c1"># output: [&#39;output00000.swc&#39;, &#39;output00001.swc&#39;, &#39;output00002.swc&#39;]</span>
 
 <span class="c1"># get first SWC and load into NeuroM</span>
-<span class="kn">import</span> <span class="nn">neurom</span> <span class="k">as</span> <span class="nn">nm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">neurom</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nm</span>
 <span class="n">nrn</span> <span class="o">=</span> <span class="n">nm</span><span class="o">.</span><span class="n">load_neuron</span><span class="p">(</span><span class="n">matchingFiles</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">nrnSegLen</span> <span class="o">=</span> <span class="n">nm</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;segment_lengths&#39;</span><span class="p">,</span> <span class="n">nrn</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">nrnSegLen</span><span class="p">))</span>
@@ -290,12 +326,12 @@ counting points in an experiment to green.</p>
 </section>
 </section>
 <section id="meshes-obj">
-<h2>Meshes (OBJ)<a class="headerlink" href="#meshes-obj" title="Permalink to this heading">¶</a></h2>
+<h2>Meshes (OBJ)<a class="headerlink" href="#meshes-obj" title="Link to this heading">¶</a></h2>
 <section id="import">
-<h3>Import<a class="headerlink" href="#import" title="Permalink to this heading">¶</a></h3>
+<h3>Import<a class="headerlink" href="#import" title="Link to this heading">¶</a></h3>
 <p>Import a list of mesh files in the OBJ file format:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
-<span class="kn">import</span> <span class="nn">glob</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">syglass</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
 
 <span class="c1"># get the syGlass project</span>
 <span class="n">project</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">get_project</span><span class="p">(</span><span class="s2">&quot;C:/syGlass Projects/thor/thorlabs.syg&quot;</span><span class="p">)</span>
@@ -306,13 +342,13 @@ counting points in an experiment to green.</p>
 </section>
 </section>
 <section id="rois">
-<h2>ROIs<a class="headerlink" href="#rois" title="Permalink to this heading">¶</a></h2>
+<h2>ROIs<a class="headerlink" href="#rois" title="Link to this heading">¶</a></h2>
 <section id="importing-and-exporting-roi-data">
-<h3>Importing and Exporting ROI Data<a class="headerlink" href="#importing-and-exporting-roi-data" title="Permalink to this heading">¶</a></h3>
+<h3>Importing and Exporting ROI Data<a class="headerlink" href="#importing-and-exporting-roi-data" title="Link to this heading">¶</a></h3>
 <p>Export ROI data to numpy arrays and import an ROI to syGlass:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">tifffile</span>
-<span class="kn">import</span> <span class="nn">syglass</span> <span class="k">as</span> <span class="nn">sy</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tifffile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">syglass</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sy</span>
 
 <span class="c1"># get the syGlass project</span>
 <span class="n">project</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">get_project</span><span class="p">(</span><span class="s2">&quot;C:/path/to/project_file.syg&quot;</span><span class="p">)</span>
@@ -345,7 +381,7 @@ counting points in an experiment to green.</p>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="index.html">syglass</a></h1>
 
@@ -356,7 +392,16 @@ counting points in an experiment to green.</p>
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Usage Examples</a><ul>
@@ -365,6 +410,7 @@ counting points in an experiment to green.</p>
 <li class="toctree-l3"><a class="reference internal" href="#adding-mask-data-to-projects">Adding Mask Data to Projects</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#traversing-the-volume">Traversing the Volume</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#retrieving-volumetric-data-around-points">Retrieving Volumetric Data Around Points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#retrieving-mask-data">Retrieving Mask Data</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#counting">Counting</a><ul>
@@ -389,6 +435,9 @@ counting points in an experiment to green.</p>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="faqs.html">FAQs</a></li>
 </ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">syglass</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
@@ -399,16 +448,6 @@ counting points in an experiment to green.</p>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -422,11 +461,11 @@ counting points in an experiment to green.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2019, IstoVisio.
+      &#169;2019, IstoVisio.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
       |
       <a href="_sources/examples.rst.txt"
